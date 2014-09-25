@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{91AC1F95-B110-CBC9-E811-6CC5E294FC3B}</ProjectGuid>
+	<ProjectGuid>{42DC4F8F-593C-FA2C-3E75-CFBEAB8B64D6}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Vidas.cs" />
+     <Compile Include="Assets\Scripts\pause.cs" />
+     <Compile Include="Assets\Scripts\teste.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

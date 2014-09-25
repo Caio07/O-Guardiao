@@ -18,6 +18,7 @@ public class Jogador : MonoBehaviour {
 	public float MaxQntVida;
 
 
+
 	//public GameObject gameOver;
 	public AudioClip clipAlimento;
 	public AudioClip clipAcao;
@@ -123,6 +124,7 @@ public class Jogador : MonoBehaviour {
 		GUI.Button(new Rect(posX,posY,width,height2)," ");	
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
+	
 
 	}
 }
