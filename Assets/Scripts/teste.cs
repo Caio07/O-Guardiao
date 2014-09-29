@@ -17,10 +17,10 @@ public class teste : MonoBehaviour {
 
 	void OnGUI () {
 		GUI.skin = imagem;
-		// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-		if (GUI.Button(new Rect(20,30,40,40), "")){
 
-			if(paused){
+		if (GUI.Button(new Rect(20,30,40,40), "")){
+			paused = tooglePause();
+			/*if(paused){
 				
 				GUI.BeginGroup(new Rect(((Screen.width/2) - (groupWidth/2)), ((Screen.height/2) - (groupHeight/2)), groupWidth, groupHeight));
 				if (GUI.Button(new Rect(0,0,buttonWidth,buttonHeight), "Main Menu"))
@@ -37,7 +37,7 @@ public class teste : MonoBehaviour {
 					//Application.loadedLevel(1);
 				}
 				GUI.EndGroup();
-			}
+			}*/
 
 		} 
 
@@ -45,8 +45,8 @@ public class teste : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetKeyUp(KeyCode.Escape))
-			paused = tooglePause();
+	
+
 	}
 
 	bool tooglePause()

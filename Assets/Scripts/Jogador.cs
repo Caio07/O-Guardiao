@@ -37,11 +37,12 @@ public class Jogador : MonoBehaviour {
 	void Update () {
 	
 		Plataforma ();
-		width = Screen.width/15;
+		width = Screen.width/13;
 		posX = Screen.width - width;
 		posY = Screen.height/4;
 		height = Screen.height/1.4f;
 		height2 = Screen.height/1.4f * (QntVida/MaxQntVida);
+
 
 
 		}
@@ -76,12 +77,17 @@ public class Jogador : MonoBehaviour {
 
 		if ( collisor.tag == "Acao"){
 
-			if (QntVida>0)
+			if (QntVida>10)
 			{
 				QntVida = QntVida - 10f;
 
 			}
-
+			else if(QntVida<=10){
+				Handheld.Vibrate();
+				collider2D.enabled = false;
+				Invoke("LoadLevel", 1f);
+				
+			}
 				//collisor.GetComponent<Item>().InstanciarDestruir();
 			collisor.GetComponent<Acao>().Destroy();
 
@@ -92,7 +98,13 @@ public class Jogador : MonoBehaviour {
 
 			//Audio(clipAcao);
 			collisor.GetComponent<Acao>().Destroy();
-			QntVida = QntVida + 10f;
+
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida + 10f;
+				
+			}
+
 			/*if(!vidas.Remover()){
 
 				collider2D.enabled = false;
