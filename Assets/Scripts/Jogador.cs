@@ -5,9 +5,10 @@ public class Jogador : MonoBehaviour {
 
 	float rotationAngle = 180;
 
-	public bool timerligado;
+	public bool timerligado = false;
 	private Vector3 position;
 	public GUISkin textbox;
+	public GUIText clique;
 	public float posX;
 	public float posY;
 	public float height;
@@ -31,8 +32,8 @@ public class Jogador : MonoBehaviour {
 	void Start () {
 		QntVida=50;
 		MaxQntVida=100;
-	
 		renderer.enabled = true;
+
 
 				  }
 	
@@ -53,7 +54,8 @@ public class Jogador : MonoBehaviour {
 		{
 			renderer.enabled = false;
 			Time.timeScale =1;
-	
+			clique.enabled = false;
+
 		}
 
 
@@ -63,11 +65,14 @@ public class Jogador : MonoBehaviour {
 		posY = Screen.height/4;
 		height = Screen.height/1.4f;
 		height2 = Screen.height/1.4f * (QntVida/MaxQntVida);
-		if( QntVida < MaxQntVida && timerligado == true)
-		{
-			QntVida = QntVida - 0.02f;
+
+		if(renderer.enabled == false){
+			if( QntVida < MaxQntVida)
+			{
+			QntVida -= 0.02f;
 		
-		}
+			
+			}}
 
 		if(QntVida<=10)
 		{

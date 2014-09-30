@@ -5,6 +5,7 @@ public class Pause : MonoBehaviour {
 
 	public bool CanPause;
 	public GUISkin imagem;
+	public Texture2D[] textura;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class Pause : MonoBehaviour {
 			{
 				Time.timeScale = 0;
 				CanPause = false;
+
 			}
 			else
 			{

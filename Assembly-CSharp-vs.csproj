@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Pontos.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
      <Compile Include="Assets\Scripts\Vidas.cs" />
+     <Compile Include="Assets\Scripts\menu_pause.cs" />
      <Compile Include="Assets\Scripts\menu_principal.cs" />
      <Compile Include="Assets\Scripts\timer.cs" />
   </ItemGroup>
