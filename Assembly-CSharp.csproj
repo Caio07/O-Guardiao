@@ -47,16 +47,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Acao.cs" />
+     <Compile Include="Assets\Scripts\Escolher_personagem.cs" />
      <Compile Include="Assets\Scripts\GerenciarCamera.cs" />
      <Compile Include="Assets\Scripts\Glicose.cs" />
      <Compile Include="Assets\Scripts\Instanciar.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\Jogador.cs" />
+     <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\Pontos.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
-     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Vidas.cs" />
-     <Compile Include="Assets\Scripts\teste.cs" />
+     <Compile Include="Assets\Scripts\menu_principal.cs" />
+     <Compile Include="Assets\Scripts\timer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

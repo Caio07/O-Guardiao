@@ -1,45 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Timer : MonoBehaviour {
+public class timer : MonoBehaviour {
+
 
 	public float startTime;
 	public float timeRemaining;
-	//public GUIText timer;
 
-
+	
 
 	// Use this for initialization
 	void Start () {
-	
-		startTime = 0.0f;
-
+		startTime = 10f;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+			CountDown();
+			
+		
+	}
 	
-		CountDown();
+	public void CountDown(){
 
-	}
 
-	void CountDown(){
-
-		timeRemaining = startTime + Time.time;
+		timeRemaining = startTime - Time.timeSinceLevelLoad;
 		ShowTime();
-		if(timeRemaining <0){
-			timeRemaining =0;
-
-
-		}
-
+		if(timeRemaining <0)
+		{
+			Application.LoadLevel("Game Over");			
+	    }
+	
+	
 	}
-	void ShowTime(){
+	void ShowTime()
+	{
 		int minutes;
 		int seconds;
 		string timeString;
-
+		
 		minutes = (int)timeRemaining/60;
 		seconds = (int)timeRemaining % 60;
 		timeString = minutes.ToString() + ":" + seconds.ToString("D2");
@@ -47,7 +48,6 @@ public class Timer : MonoBehaviour {
 
 	}
 
-
-
+	
 
 }

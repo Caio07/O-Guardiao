@@ -5,9 +5,8 @@ public class Jogador : MonoBehaviour {
 
 	float rotationAngle = 180;
 
+	public bool timerligado;
 	private Vector3 position;
-	private bool morte;
-	public GUISkin textbutton;
 	public GUISkin textbox;
 	public float posX;
 	public float posY;
@@ -17,9 +16,11 @@ public class Jogador : MonoBehaviour {
 	public float QntVida;
 	public float MaxQntVida;
 
+	public Texture2D fundomax;
+	public Texture2D fundomin;
+	public Texture2D fundobom;
+	
 
-
-	//public GameObject gameOver;
 	public AudioClip clipAlimento;
 	public AudioClip clipAcao;
 
@@ -30,29 +31,71 @@ public class Jogador : MonoBehaviour {
 	void Start () {
 		QntVida=50;
 		MaxQntVida=100;
+	
+		renderer.enabled = true;
 
-	}
+				  }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+{
 	
+		if(renderer.enabled)
+		{
+			
+			Time.timeScale = 0;
+			
+        }
+
+		bool tapTouch = Input.GetMouseButtonDown(0);
+
+		if(tapTouch)
+		{
+			renderer.enabled = false;
+			Time.timeScale =1;
+	
+		}
+
+
 		Plataforma ();
 		width = Screen.width/13;
 		posX = Screen.width - width;
 		posY = Screen.height/4;
 		height = Screen.height/1.4f;
 		height2 = Screen.height/1.4f * (QntVida/MaxQntVida);
+		if( QntVida < MaxQntVida && timerligado == true)
+		{
+			QntVida = QntVida - 0.02f;
+		
+		}
 
-
+		if(QntVida<=10)
+		{
+			Handheld.Vibrate();
+			collider2D.enabled = false;
+			QntVida += 5;
+			Invoke("LoadLevel", 1f);
+		}
+		if(QntVida > 90)
+		{
+			collider2D.enabled = false;
+			Invoke("LoadLevel", 1f);
 
 		}
 
-	private void Plataforma(){
 
 
-		if(Application.platform == RuntimePlatform.Android){
+}
 
-			if(Input.touchCount == 1){
+	private void Plataforma()
+{
+
+
+		if(Application.platform == RuntimePlatform.Android)
+	{
+
+			if(Input.touchCount == 1)
+			{
 				position = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, 
 			                                                      Input.GetTouch(0).position.y,1));
 
@@ -61,8 +104,9 @@ public class Jogador : MonoBehaviour {
 			return;
 			}
 			collider2D.enabled = false;
-		}
-		else {
+	}
+		else 
+		{
 
 			position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 
 			                                                      Input.mousePosition.y,0));
@@ -70,7 +114,7 @@ public class Jogador : MonoBehaviour {
 			transform.position = new Vector2(position.x, position.y);
 		}
 
-	}
+}
 
 	public void OnTriggerEnter2D(Collider2D collisor)
 	{
@@ -82,13 +126,8 @@ public class Jogador : MonoBehaviour {
 				QntVida = QntVida - 10f;
 
 			}
-			else if(QntVida<=10){
-				Handheld.Vibrate();
-				collider2D.enabled = false;
-				Invoke("LoadLevel", 1f);
+
 				
-			}
-				//collisor.GetComponent<Item>().InstanciarDestruir();
 			collisor.GetComponent<Acao>().Destroy();
 
 
@@ -127,6 +166,9 @@ public class Jogador : MonoBehaviour {
 		Application.LoadLevel("Menu");
 	}
 
+
+
+
 	void OnGUI(){
 		GUI.skin = textbox;
 
@@ -137,8 +179,27 @@ public class Jogador : MonoBehaviour {
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
 	
+		if(QntVida > 70){
+			
+			GUI.skin.button.normal.background = fundomax;
+			
+		}
+		if(QntVida > 30 && QntVida < 70){
+			
+			GUI.skin.button.normal.background = fundobom;
+			
+		}
+		if(QntVida < 30){
+
+			GUI.skin.button.normal.background = fundomin;
+		}
+
+
+
 
 	}
+
+
 }
 
 

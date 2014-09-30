@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: c39d7634671caf44580b18d0241d570c
+guid: db4dc5cf399a29c43862a9587c801a27
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: barra
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
