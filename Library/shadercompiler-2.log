@@ -1,0 +1,43 @@
+Base path: C:/Program Files (x86)/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-2-22680
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=9 type=0 insize=1059 outsize=1189 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=1059 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=11209 outsize=1558 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=11209 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=11201 outsize=837 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=11201 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=11209 outsize=2046 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=11209 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=11215 outsize=4381 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=11215 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=11225 outsize=4059 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=11225 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=11212 outsize=1153 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=11212 outsize=6 kw= ok=1
+Cmd: compileSnippet
+  api=5 type=0 insize=11211 outsize=2332 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=11211 outsize=7 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=0 insize=11217 outsize=4680 kw= ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=11217 outsize=7 kw= ok=1
+Unhandled exception: Readfile from pipe failed. GLE=O pipe foi finalizado.
+
+
+Quitting shader compiler process

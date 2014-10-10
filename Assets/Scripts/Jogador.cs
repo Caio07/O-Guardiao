@@ -4,11 +4,13 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 
 	float rotationAngle = 180;
+	public GameObject personagem;
+
+
 
 	public bool timerligado = false;
 	private Vector3 position;
 	public GUISkin textbox;
-	public GUIText clique;
 	public float posX;
 	public float posY;
 	public float height;
@@ -17,23 +19,32 @@ public class Jogador : MonoBehaviour {
 	public float QntVida;
 	public float MaxQntVida;
 
+
 	public Texture2D fundomax;
 	public Texture2D fundomin;
 	public Texture2D fundobom;
 	
 
-	public AudioClip clipAlimento;
-	public AudioClip clipAcao;
+	public AudioClip clipAudio;
+
 
 	TrailRenderer trail;
 
 
 	// Use this for initialization
 	void Start () {
-		QntVida=50;
-		MaxQntVida=100;
+
+	
+
+
+		QntVida=100;
+		MaxQntVida=300;
 		renderer.enabled = true;
 
+		GameObject clone;
+		clone = Instantiate(personagem.transform, 
+		                    personagem.transform.position, 
+		                    personagem.transform.rotation) as GameObject;
 
 				  }
 	
@@ -54,7 +65,7 @@ public class Jogador : MonoBehaviour {
 		{
 			renderer.enabled = false;
 			Time.timeScale =1;
-			clique.enabled = false;
+
 
 		}
 
@@ -69,19 +80,22 @@ public class Jogador : MonoBehaviour {
 		if(renderer.enabled == false){
 			if( QntVida < MaxQntVida)
 			{
-			QntVida -= 0.02f;
+			QntVida -= 0.1f;
 		
 			
 			}}
 
-		if(QntVida<=10)
+		if(QntVida<=50)
 		{
 			Handheld.Vibrate();
 			collider2D.enabled = false;
 			QntVida += 5;
 			Invoke("LoadLevel", 1f);
 		}
-		if(QntVida > 90)
+
+
+
+		if(QntVida > 270)
 		{
 			collider2D.enabled = false;
 			Invoke("LoadLevel", 1f);
@@ -123,12 +137,13 @@ public class Jogador : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D collisor)
 	{
-
-		if ( collisor.tag == "Acao"){
+		// Colisao de todos os elementos que aparecerao em cena
+			
+		if ( collisor.tag == "Exercicio"){
 
 			if (QntVida>10)
 			{
-				QntVida = QntVida - 10f;
+				QntVida = QntVida - 57f;
 
 			}
 
@@ -136,16 +151,16 @@ public class Jogador : MonoBehaviour {
 			collisor.GetComponent<Acao>().Destroy();
 
 
-			//Audio(clipAlimento);
-		}
-		else if(collisor.tag == "Alimentos"){
+			Audio(clipAudio);
+			}
+		else if(collisor.tag == "Insulina"){
 
-			//Audio(clipAcao);
+			Audio(clipAudio);
 			collisor.GetComponent<Acao>().Destroy();
-
+		
 			if (QntVida<MaxQntVida)
 			{
-				QntVida = QntVida + 10f;
+				QntVida = QntVida - 70f;
 				
 			}
 
@@ -157,14 +172,83 @@ public class Jogador : MonoBehaviour {
 
 
 			}*/
+			}
+		else if(collisor.tag == "Abacate"){
+
+			Audio(clipAudio);
+			collisor.GetComponent<Acao>().Destroy();
+		
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida - 30f;
+				
+			}
+
+
+			}
+
+		else if(collisor.tag == "Sorvete"){
+			
+			Audio(clipAudio);
+			collisor.GetComponent<Acao>().Destroy();
+			
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida + 57f;
+				
+			}
+			
+			
+		}
+
+		else if(collisor.tag == "Cenoura"){
+			
+			Audio(clipAudio);
+			collisor.GetComponent<Acao>().Destroy();
+			
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida + 35f;
+				
+			}
+			
+			
+		}
+
+		else if(collisor.tag == "Pao"){
+			
+			Audio(clipAudio);
+			collisor.GetComponent<Acao>().Destroy();
+			
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida + 95f;
+				
+			}
+			
+			
+		}
+
+		else if(collisor.tag == "Refrigerante"){
+			
+			Audio(clipAudio);
+			collisor.GetComponent<Acao>().Destroy();
+			
+			if (QntVida<MaxQntVida)
+			{
+				QntVida = QntVida + 63f;
+				
+			}
+			
+			
 		}
 	}
 
-	/*void Audio(AudioClip clip){
+	void Audio(AudioClip clip){
 
 		audio.clip = clip;
 		AudioSource.PlayClipAtPoint(clip, transform.position, 0.2f);
-	}*/
+	}
 
 	void LoadLevel() {
 
@@ -184,17 +268,17 @@ public class Jogador : MonoBehaviour {
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
 	
-		if(QntVida > 70){
+		if(QntVida > 200){
 			
 			GUI.skin.button.normal.background = fundomax;
 			
 		}
-		if(QntVida > 30 && QntVida < 70){
+		if(QntVida > 70 && QntVida < 200){
 			
 			GUI.skin.button.normal.background = fundobom;
 			
 		}
-		if(QntVida < 30){
+		if(QntVida < 70){
 
 			GUI.skin.button.normal.background = fundomin;
 		}
@@ -203,6 +287,8 @@ public class Jogador : MonoBehaviour {
 
 
 	}
+
+
 
 
 }

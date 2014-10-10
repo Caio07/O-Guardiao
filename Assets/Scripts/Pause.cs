@@ -5,11 +5,15 @@ public class Pause : MonoBehaviour {
 
 	public bool CanPause;
 	public GUISkin imagem;
-	public Texture2D[] textura;
+
+
+
+
 
 	// Use this for initialization
 	void Start () {
 		CanPause = true;
+
 	}
 	
 	// Update is called once per frame
@@ -22,6 +26,7 @@ public class Pause : MonoBehaviour {
 
 	}
 
+
 	void OnGUI()
 	{
 		GUI.skin = imagem;
@@ -31,12 +36,16 @@ public class Pause : MonoBehaviour {
 			{
 				Time.timeScale = 0;
 				CanPause = false;
+				renderer.enabled = true;
+							
 
 			}
 			else
 			{
 				Time.timeScale=1;
 				CanPause = true;
+				renderer.enabled = false;
+			
 			}
 		}
 	

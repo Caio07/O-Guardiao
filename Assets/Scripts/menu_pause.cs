@@ -7,12 +7,14 @@ public class menu_pause : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+		guiTexture.enabled = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnMouseDown(){

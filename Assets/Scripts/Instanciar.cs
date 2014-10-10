@@ -46,6 +46,8 @@ public class Instanciar : MonoBehaviour {
 
 			item = Instantiate(Itens[index], new Vector2(Random.Range(minX,maxX), transform.position.y)
 			                   ,Quaternion.Euler(0,0,Random.Range(-160,160)))as GameObject;
+			minSpawntime ++;
+			maxSpawntime++;
 
 			if (item.transform.position.x > 0){
 
