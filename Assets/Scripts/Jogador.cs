@@ -3,21 +3,23 @@ using System.Collections;
 
 public class Jogador : MonoBehaviour {
 
+
+
 	float rotationAngle = 180;
 	public GameObject personagem;
-
-
-
-	public bool timerligado = false;
+	public GameObject teste_pontos;
 	private Vector3 position;
+	private Vector3 psposition;
 	public GUISkin textbox;
 	public float posX;
 	public float posY;
 	public float height;
 	public float width;
+	public float width2;
 	public float height2;
 	public float QntVida;
 	public float MaxQntVida;
+	private float initializationTime;
 
 
 	public Texture2D fundomax;
@@ -34,8 +36,11 @@ public class Jogador : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-	
+		initializationTime = Time.realtimeSinceStartup;
+		Vector2 psposition = personagem.transform.position;
 
+		psposition.x = Screen.width / 70;
+		psposition.y = Screen.height/ 85 + 0.5f;
 
 		QntVida=100;
 		MaxQntVida=300;
@@ -45,12 +50,15 @@ public class Jogador : MonoBehaviour {
 		clone = Instantiate(personagem.transform, 
 		                    personagem.transform.position, 
 		                    personagem.transform.rotation) as GameObject;
-
+		personagem.transform.position = psposition;
+	
 				  }
+	    
 	
 	// Update is called once per frame
 	void Update () 
 {
+
 	
 		if(renderer.enabled)
 		{
@@ -144,6 +152,19 @@ public class Jogador : MonoBehaviour {
 			if (QntVida>10)
 			{
 				QntVida = QntVida - 57f;
+				//staticText.text = "+30";
+
+				float timeSinceInitialization = Time.realtimeSinceStartup - initializationTime;
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "-30";
+				Destroy(texto,1);
+
+				
+		
+
 
 			}
 

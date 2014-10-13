@@ -13,15 +13,11 @@ public class Item : MonoBehaviour {
 	private Vector3 screen;
 
 
-	/*public float alpha;
-	public float red;
-	public float green;
-	public float blue;*/
 
 	public float minY;
 	public float maxY;
 
-	private float rotDirecao = 50;
+	//private float rotDirecao = 50;
 	// Use this for initialization
 	void Start () {
 
