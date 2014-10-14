@@ -3,21 +3,28 @@ using System.Collections;
 
 public class Jogador : MonoBehaviour {
 
+
+
 	float rotationAngle = 180;
 	public GameObject personagem;
-
-
-
-	public bool timerligado = false;
+	public GameObject teste_pontos;
 	private Vector3 position;
+<<<<<<< HEAD
+	//private Vector3 psposition;
+=======
+	private Vector3 psposition;
+>>>>>>> origin/master
 	public GUISkin textbox;
 	public float posX;
 	public float posY;
 	public float height;
 	public float width;
+	public float width2;
 	public float height2;
 	public float QntVida;
 	public float MaxQntVida;
+	private float initializationTime;
+
 
 
 	public Texture2D fundomax;
@@ -34,23 +41,41 @@ public class Jogador : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-	
+<<<<<<< HEAD
 
+		/*Vector2 psposition = personagem.transform.position;
+
+		psposition.x = 7.35f;
+		psposition.y = 3.54f;*/
+=======
+		initializationTime = Time.realtimeSinceStartup;
+		Vector2 psposition = personagem.transform.position;
+
+		psposition.x = Screen.width / 70;
+		psposition.y = Screen.height/ 85 + 0.5f;
+>>>>>>> origin/master
 
 		QntVida=100;
 		MaxQntVida=300;
 		renderer.enabled = true;
 
-		GameObject clone;
+		/*GameObject clone;
 		clone = Instantiate(personagem.transform, 
 		                    personagem.transform.position, 
 		                    personagem.transform.rotation) as GameObject;
-
+<<<<<<< HEAD
+		personagem.transform.position = psposition;*/
+=======
+		personagem.transform.position = psposition;
+>>>>>>> origin/master
+	
 				  }
+	    
 	
 	// Update is called once per frame
 	void Update () 
 {
+
 	
 		if(renderer.enabled)
 		{
@@ -144,6 +169,29 @@ public class Jogador : MonoBehaviour {
 			if (QntVida>10)
 			{
 				QntVida = QntVida - 57f;
+				//staticText.text = "+30";
+
+<<<<<<< HEAD
+
+=======
+				float timeSinceInitialization = Time.realtimeSinceStartup - initializationTime;
+>>>>>>> origin/master
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+<<<<<<< HEAD
+				myText.guiText.text = "-50";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+=======
+				myText.guiText.text = "-30";
+				Destroy(texto,1);
+>>>>>>> origin/master
+
+				
+		
+
 
 			}
 
@@ -161,6 +209,15 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida - 70f;
+
+
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "-70";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 				
 			}
 
@@ -181,7 +238,15 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida - 30f;
-				
+
+
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "-30";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 			}
 
 
@@ -195,7 +260,14 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida + 57f;
-				
+		
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "+57";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 			}
 			
 			
@@ -209,6 +281,14 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida + 35f;
+		
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "+35";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 				
 			}
 			
@@ -223,6 +303,15 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida + 95f;
+
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "+95";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+
 				
 			}
 			
@@ -237,6 +326,16 @@ public class Jogador : MonoBehaviour {
 			if (QntVida<MaxQntVida)
 			{
 				QntVida = QntVida + 63f;
+
+
+				GameObject texto = new GameObject("Pontuou");
+				Instantiate(texto);
+				GUIText myText = texto.AddComponent<GUIText>();
+				myText.transform.position = new Vector3(0.5f,0.5f,0f);
+				myText.guiText.text = "+63";
+				myText.guiText.fontSize = 24;
+				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+
 				
 			}
 			

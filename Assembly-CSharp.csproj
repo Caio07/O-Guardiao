@@ -46,7 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Flow\DetectSimplePan.cs" />
+     <Compile Include="Assets\Flow\DetectTap.cs" />
+     <Compile Include="Assets\Flow\FlowView.cs" />
+     <Compile Include="Assets\Flow\Singleton.cs" />
+     <Compile Include="Assets\Flow\SmoothLookAt.cs" />
+     <Compile Include="Assets\LeanTween\LeanTween.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\Demo Scene\Scripts\OrthographicSetup.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\Demo Scene\Scripts\ScreenPlacement.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\ScreenPlacementExtension.cs" />
      <Compile Include="Assets\Scripts\Acao.cs" />
+     <Compile Include="Assets\Scripts\CircleBar.cs" />
      <Compile Include="Assets\Scripts\Escolher_personagem.cs" />
      <Compile Include="Assets\Scripts\Fade.cs" />
      <Compile Include="Assets\Scripts\GerenciarCamera.cs" />
@@ -56,10 +66,11 @@
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\Pontos.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Vidas.cs" />
      <Compile Include="Assets\Scripts\menu_pause.cs" />
      <Compile Include="Assets\Scripts\menu_principal.cs" />
-     <Compile Include="Assets\Scripts\timer.cs" />
+     <Compile Include="Assets\Scripts\staticText.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -99,6 +110,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\CameraMotionBlur.shader" />
@@ -129,6 +141,9 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="TouchScript">
+ <HintPath>C:/Users/Caio/Documents/GitHub/O-Guardiao/Assets/TouchScript/Plugins/TouchScript.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
