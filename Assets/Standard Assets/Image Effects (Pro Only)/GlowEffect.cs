@@ -169,7 +169,7 @@ public class GlowEffect : MonoBehaviour
 			RenderTexture.ReleaseTemporary(buffer);
 			buffer = buffer2;
 		}
-		Graphics.Blit(source,destination);
+//		Graphics.Blit(source,destination);
 				
 		BlitGlow(buffer, destination);
 		
@@ -179,6 +179,6 @@ public class GlowEffect : MonoBehaviour
 	public void BlitGlow( RenderTexture source, RenderTexture dest )
 	{
 		compositeMaterial.color = new Color(1F, 1F, 1F, Mathf.Clamp01(glowIntensity));
-		Graphics.Blit (source, dest, compositeMaterial);
+		//Graphics.Blit (source, dest, compositeMaterial);
 	}	
 }
