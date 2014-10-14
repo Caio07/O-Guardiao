@@ -21,7 +21,7 @@ public class Escolher_personagem : MonoBehaviour {
 	public GUISkin customSkin1;
 	public GUISkin customSkin2;
 	public GUISkin customSkin3;
-	timer iniciar = new timer();
+
 	
 	void Awake () {
 		topBannerH = Screen.height/4;

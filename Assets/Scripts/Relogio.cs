@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class timer : MonoBehaviour {
+public class Relogio : MonoBehaviour {
 
 
 	public float startTime;

@@ -66,7 +66,7 @@
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\Pontos.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
-     <Compile Include="Assets\Scripts\Timer.cs" />
+     <Compile Include="Assets\Scripts\Relogio.cs" />
      <Compile Include="Assets\Scripts\Vidas.cs" />
      <Compile Include="Assets\Scripts\menu_pause.cs" />
      <Compile Include="Assets\Scripts\menu_principal.cs" />

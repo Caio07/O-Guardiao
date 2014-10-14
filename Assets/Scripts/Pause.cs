@@ -19,9 +19,7 @@ public class Pause : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		Jogador _jogador = new Jogador();
-		if(CanPause == false)
-			_jogador.timerligado = false;
+
 
 
 	}
@@ -37,6 +35,8 @@ public class Pause : MonoBehaviour {
 				Time.timeScale = 0;
 				CanPause = false;
 				renderer.enabled = true;
+
+			
 							
 
 			}

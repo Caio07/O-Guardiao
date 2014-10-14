@@ -9,11 +9,11 @@ public class Jogador : MonoBehaviour {
 	public GameObject personagem;
 	public GameObject teste_pontos;
 	private Vector3 position;
-<<<<<<< HEAD
+
 	//private Vector3 psposition;
-=======
+
 	private Vector3 psposition;
->>>>>>> origin/master
+
 	public GUISkin textbox;
 	public float posX;
 	public float posY;
@@ -41,19 +41,19 @@ public class Jogador : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-<<<<<<< HEAD
+
 
 		/*Vector2 psposition = personagem.transform.position;
 
 		psposition.x = 7.35f;
 		psposition.y = 3.54f;*/
-=======
+
 		initializationTime = Time.realtimeSinceStartup;
 		Vector2 psposition = personagem.transform.position;
 
 		psposition.x = Screen.width / 70;
 		psposition.y = Screen.height/ 85 + 0.5f;
->>>>>>> origin/master
+
 
 		QntVida=100;
 		MaxQntVida=300;
@@ -65,9 +65,9 @@ public class Jogador : MonoBehaviour {
 		                    personagem.transform.rotation) as GameObject;
 <<<<<<< HEAD
 		personagem.transform.position = psposition;*/
-=======
+
 		personagem.transform.position = psposition;
->>>>>>> origin/master
+
 	
 				  }
 	    
@@ -171,23 +171,21 @@ public class Jogador : MonoBehaviour {
 				QntVida = QntVida - 57f;
 				//staticText.text = "+30";
 
-<<<<<<< HEAD
 
-=======
+
 				float timeSinceInitialization = Time.realtimeSinceStartup - initializationTime;
->>>>>>> origin/master
 				GameObject texto = new GameObject("Pontuou");
 				Instantiate(texto);
 				GUIText myText = texto.AddComponent<GUIText>();
 				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-<<<<<<< HEAD
+
 				myText.guiText.text = "-50";
 				myText.guiText.fontSize = 24;
 				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
-=======
+
 				myText.guiText.text = "-30";
 				Destroy(texto,1);
->>>>>>> origin/master
+
 
 				
 		
