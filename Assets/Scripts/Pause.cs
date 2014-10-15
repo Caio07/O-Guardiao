@@ -4,42 +4,58 @@ using System.Collections;
 public class Pause : MonoBehaviour {
 
 	public bool CanPause;
-	public GUISkin imagem;
+	public GUIStyle imagem;
 
 
 
 
 
-	// Use this for initialization
 	void Start () {
-		CanPause = true;
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-
+		CanPause = false;
 
 
 	}
+
+
 
 
 	void OnGUI()
 	{
-		GUI.skin = imagem;
+
+		CanPause = GUI.Toggle (new Rect (20,30,40,40), CanPause,"",imagem);
+		if (CanPause)
+		{
+			Time.timeScale = 0;
+			CanPause = false;
+			renderer.enabled = true;
+			if(GUI.Button(new Rect(40,30,40,40),"botao")){
+
+				Application.LoadLevel(1);
+			}
+		}
+		else
+		{
+			Time.timeScale = 1;
+			CanPause = true;
+			renderer.enabled = false;
+		
+		}
+
+		/*GUI.skin = imagem;
 		if (GUI.Button(new Rect (20,30,40,40), ""))
 		{
+
 			if (CanPause)
 			{
+		
+				Application.load("Menu_Pause");
 				Time.timeScale = 0;
 				CanPause = false;
 				renderer.enabled = true;
 
-			
-							
-
 			}
+
+				
 			else
 			{
 				Time.timeScale=1;
@@ -47,7 +63,7 @@ public class Pause : MonoBehaviour {
 				renderer.enabled = false;
 			
 			}
-		}
+		}*/
 	
 	}
 }
