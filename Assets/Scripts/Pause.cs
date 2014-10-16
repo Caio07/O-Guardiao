@@ -4,14 +4,16 @@ using System.Collections;
 public class Pause : MonoBehaviour {
 
 	public bool CanPause;
-	public GUIStyle imagem;
+	public GUIStyle fundopause;
+	public GUIStyle fundoplay;
 
 
 
 
 
 	void Start () {
-		CanPause = false;
+		CanPause = true;
+	
 
 
 	}
@@ -22,15 +24,20 @@ public class Pause : MonoBehaviour {
 	void OnGUI()
 	{
 
-		CanPause = GUI.Toggle (new Rect (20,30,40,40), CanPause,"",imagem);
+		CanPause = GUI.Toggle (new Rect (20,30,40,40), CanPause,"",fundopause);
+
 		if (CanPause)
 		{
+
 			Time.timeScale = 0;
 			CanPause = false;
 			renderer.enabled = true;
-			if(GUI.Button(new Rect(40,30,40,40),"botao")){
 
-				Application.LoadLevel(1);
+			GUI.Box(new Rect(0,0,Screen.width,Screen.height),"");
+			if(GUI.Button(new Rect(Screen.width / 2, Screen.height /2,200,200), "Tabela de Carboidratos")){
+				
+				Application.LoadLevel("Tabela_de_carboidratos");
+
 			}
 		}
 		else
