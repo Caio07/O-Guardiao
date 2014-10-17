@@ -10,6 +10,7 @@ public class Instanciar : MonoBehaviour {
 	public GameObject [] Itens;
 	private GameObject item;
 	private int index;
+	public AudioClip clipAudio;
 
 
 	public float upForce = 400f;
@@ -46,8 +47,7 @@ public class Instanciar : MonoBehaviour {
 
 			item = Instantiate(Itens[index], new Vector2(Random.Range(minX,maxX), transform.position.y)
 			                   ,Quaternion.Euler(0,0,Random.Range(-160,160)))as GameObject;
-			minSpawntime ++;
-			maxSpawntime++;
+			Audio(clipAudio);
 
 			if (item.transform.position.x > 0){
 
@@ -61,6 +61,12 @@ StartCoroutine("Instanciador");
 			}
 
 		}
+
+	void Audio(AudioClip clip){
+		
+		audio.clip = clip;
+		AudioSource.PlayClipAtPoint(clip, transform.position, 0.2f);
+	}
 
 }
 
