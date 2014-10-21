@@ -3,66 +3,83 @@ using System.Collections;
 
 public class menu_principal : MonoBehaviour {
 
-	public float topBannerH;
-	public float topBannerW;
-	//Buttons
-	public float  buttonSizeH;
-	public float  buttonSizeW;
-	public float  buttonPos1;
-	public float  buttonPos2;
-	public float  buttonPos3;
-	public float  buttonPos4;
-	public float  buttonPos5;
-	//Bottom Banner
-	public float  bottomBannerH;
-	public float  bottomBannerW;
-	public float  bottomBannerPos;
-	public string exampleVar1;
-	public GUISkin customSkin1;
-	public GUISkin customSkin2;
-	public GUISkin customSkin3;
+
+	public float buttonw;
+	public float buttonh;
+	public float buttonposition;
+	public float buttonPos2;
+	public float buttonPos3;
+	public bool  showWindowI;
+	public bool  showWindowC;
+	public Rect windowRect;
+	public GameObject _logo;
+
 	
 void Awake () {
-		topBannerH = Screen.height/4;
-		topBannerW = Screen.width;
-		buttonSizeH = Screen.height/10;
-		buttonSizeW = Screen.width;
-		buttonPos1 = topBannerH;
-		buttonPos2 = topBannerH+buttonSizeH;
-		buttonPos3 = topBannerH+buttonSizeH*2;
-		buttonPos4 = topBannerH+buttonSizeH*3;
-		buttonPos5 = topBannerH+buttonSizeH*4;
-		bottomBannerH = Screen.height/4;
-		bottomBannerW =  Screen.width;
-		bottomBannerPos = topBannerH+buttonSizeH*5;	
+		buttonh = 50f;
+		buttonw = 200f;
+		buttonposition = Screen.height/4;
+		buttonPos2 = buttonh + buttonposition *1.2f;
+		buttonPos3 = buttonh + buttonposition *1.96f;
+		showWindowI = false;
+		showWindowC = false;
+		windowRect = new Rect(0,0, Screen.width, Screen.height);
+
+		
+		_logo = Instantiate (_logo.transform, 
+		                     _logo.transform.position, 
+		                     _logo.transform.rotation) as GameObject;
 	}
 	
 	void OnGUI() {
-		GUI.skin = customSkin1;
-		//Title Banner
-		GUI.Box(new Rect(0,0,topBannerW,topBannerH),exampleVar1);
-		
-		GUI.skin = customSkin2;
-		//Button 1
-		if (GUI.Button(new Rect(0,buttonPos1,buttonSizeW,buttonSizeH),"Jogar")){
-			Application.LoadLevel("Escolha_personagem");
-		
-		}
-		//Button 2
-		if (GUI.Button(new Rect(0,buttonPos2,buttonSizeW,buttonSizeH),"Instruções")){
-			Debug.Log("Intruçoes");
-		}
-		//Button 3
-		if (GUI.Button(new Rect(0,buttonPos3,buttonSizeW,buttonSizeH),"Créditos")){
-			Debug.Log("Creditos");
+	
+		if(showWindowI){
+			
+			windowRect = GUI.Window(0, windowRect, DoMyWindowI, "Instruções");	
 		}
 
 		
-		GUI.skin = customSkin3;
-		//Bottom Banner
-		GUI.Box(new Rect(0,bottomBannerPos,bottomBannerW,bottomBannerH),"we can place advertisements, links\nwhatever we want here.");
+		if(showWindowC){
+			
+			windowRect = GUI.Window(0, windowRect, DoMyWindowC, "Creditos");	
+		}
+
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 - 65, buttonw, buttonh), "Jogar")){
+			
+			Application.LoadLevel(1);
+			
+		}
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2, buttonw, buttonh), "Instruções")){
+
+
+			showWindowI = true;
+
+				
+			}
+			
+
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 + 65, buttonw, buttonh), "Créditos")){
+			
+			showWindowC = true;
+			
+		}
 	}
+	
+	void DoMyWindowI(int windowID) {
 
-
-
+		GUILayout.Label("Para jogar, acerte os itens que aparecem na tela através do touch do celular e " +
+			"equilibre sua glicose pelo maior tempo possível!");
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "X")) {
+						showWindowC = false;
+						showWindowI = false;
+				}
+	}
+	void DoMyWindowC(int windowID) {
+		
+		GUILayout.Label("Aqui irão os créditos.");
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "X")) {
+			showWindowC = false;
+			showWindowI = false;
+		}
+	}
 }

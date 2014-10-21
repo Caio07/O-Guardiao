@@ -4,13 +4,10 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 
 
-
 	float rotationAngle = 180;
 	public GameObject personagem;
 	private Vector3 position;
 	public GameObject LifeBar;
-	private GameObject clone;
-	private GameObject clone2;
 	public GUISkin textbox;
 	public float posX;
 	public float posY;
@@ -18,9 +15,10 @@ public class Jogador : MonoBehaviour {
 	public float width;
 	public float width2;
 	public float height2;
+	public float posNumero;
 	public float QntVida;
 	public float MaxQntVida;
-	private float initializationTime;
+
 
 
 
@@ -37,21 +35,22 @@ public class Jogador : MonoBehaviour {
 
 	void Awake() {
 
-		QntVida=100;
+		QntVida= 100;
 		MaxQntVida=300;
 		renderer.enabled = true;
+
 
 		}
 
 
 	void Start () {
 
-		clone = Instantiate (personagem.transform, 
+		personagem = Instantiate (personagem.transform, 
 		                    personagem.transform.position, 
 		                    personagem.transform.rotation) as GameObject;
 
 
-		clone2 = Instantiate (LifeBar.transform, 
+		LifeBar = Instantiate (LifeBar.transform, 
 		                      LifeBar.transform.position, 
 		                      LifeBar.transform.rotation) as GameObject;
 						  
@@ -61,7 +60,7 @@ public class Jogador : MonoBehaviour {
 
 	void Update () 
 {
-
+		Debug.Log (posNumero);
 	
 		if(renderer.enabled)
 		{
@@ -86,6 +85,7 @@ public class Jogador : MonoBehaviour {
 		posX = Screen.width - width;
 		posY = Screen.height/4;
 		height = Screen.height/1.4f;
+		posNumero =  Screen.height/1.4f * (QntVida/MaxQntVida);
 		height2 = Screen.height/1.4f * (QntVida/MaxQntVida);
 
 		if(renderer.enabled == false){
@@ -96,7 +96,7 @@ public class Jogador : MonoBehaviour {
 			
 			}}
 
-		if(QntVida<=50)
+		if(QntVida<=30)
 		{
 			Handheld.Vibrate();
 			collider2D.enabled = false;
@@ -310,19 +310,23 @@ public class Jogador : MonoBehaviour {
 
 	void LoadLevel() {
 
-		Application.LoadLevel("Menu");
+		Application.LoadLevel("Game Over");
 	}
 
 
 	void OnGUI(){
 		GUI.skin = textbox;
-
-
+	
 		Vector2 Pivot = new Vector2(posX + width / 2.0f, posY + height / 2.0f);
 		GUIUtility.RotateAroundPivot(rotationAngle, Pivot);
 		GUI.Button(new Rect(posX,posY,width,height2)," ");	
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
+		GUI.Label(new Rect(posX -10,posNumero, 100f, 50f),QntVida.ToString("F0") );
+
+
+	
+		                                
 	
 		if(QntVida > 200){
 			
