@@ -18,7 +18,7 @@ public class Jogador : MonoBehaviour {
 	public float posNumero;
 	public float QntVida;
 	public float MaxQntVida;
-
+	public GUIStyle indicador;
 
 
 
@@ -50,9 +50,9 @@ public class Jogador : MonoBehaviour {
 		                    personagem.transform.rotation) as GameObject;
 
 
-		LifeBar = Instantiate (LifeBar.transform, 
+		/*LifeBar = Instantiate (LifeBar.transform, 
 		                      LifeBar.transform.position, 
-		                      LifeBar.transform.rotation) as GameObject;
+		                      LifeBar.transform.rotation) as GameObject;*/
 						  
 
 }
@@ -60,7 +60,7 @@ public class Jogador : MonoBehaviour {
 
 	void Update () 
 {
-		Debug.Log (posNumero);
+
 	
 		if(renderer.enabled)
 		{
@@ -98,7 +98,7 @@ public class Jogador : MonoBehaviour {
 
 		if(QntVida<=30)
 		{
-			Handheld.Vibrate();
+			//Handheld.Vibrate();
 			collider2D.enabled = false;
 			QntVida += 5;
 			Invoke("LoadLevel", 1f);
@@ -322,7 +322,8 @@ public class Jogador : MonoBehaviour {
 		GUI.Button(new Rect(posX,posY,width,height2)," ");	
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
-		GUI.Label(new Rect(posX -10,posNumero, 100f, 50f),QntVida.ToString("F0") );
+		GUI.Label(new Rect(posX -10,posNumero, 100f, 50f),QntVida.ToString("F0"),indicador );
+
 
 
 	

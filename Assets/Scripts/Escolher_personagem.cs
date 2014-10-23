@@ -18,8 +18,8 @@ public class Escolher_personagem : MonoBehaviour {
 	public GUIStyle customSkin4;
 	public bool  showWindow;
 	public Rect windowRect;
-
-
+	public GUIStyle btnJogar;
+	public GUIStyle btnFechar;
 
 	void Awake () {
 
@@ -57,7 +57,7 @@ public class Escolher_personagem : MonoBehaviour {
 		/*if (GUI.Button(new Rect(posW3,posH,123,233),"", customSkin3)){
 			Application.LoadLevel(2);
 			
-		}
+}
 		if (GUI.Button(new Rect(posW4,posH,123,233),"", customSkin4)){
 			Application.LoadLevel(2);
 			
@@ -68,12 +68,17 @@ public class Escolher_personagem : MonoBehaviour {
 		
 		GUILayout.Label("Nome: Nina\n" +
 		                "Idade: 14 anos\n" +
-		                "Historia: lorem Ipsum Dolor Siamet");
-		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "X")) {
+		                "Historia: Nina e uma menina de 8 anos que e diabetica desde seu nascimento, " +
+		                "e sempre sofreu com preconceito de amigos e ate mesmo de escolas, " +
+		                "que nao queriam aceita-la por nao conhecerem o Diabetes. Ana tem como" +
+		                "desafio mostrar para parentes e professores que leva uma vida normal" +
+		                "e que pode ser exemplo para todos os seus amigos por " +
+		                "levar uma vida feliz e saudavel.");
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "", btnFechar)) {
 			showWindow = false;
 
 		}
-		if (GUI.Button (new Rect (Screen.width/4 + 50, Screen.height - 100, 200, 50), "Jogar!")) {
+		if (GUI.Button (new Rect (Screen.width/4 + 50, Screen.height - 100, 200, 50), "", btnJogar)) {
 			Application.LoadLevel(2);
 			
 		}

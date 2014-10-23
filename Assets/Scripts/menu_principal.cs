@@ -3,7 +3,6 @@ using System.Collections;
 
 public class menu_principal : MonoBehaviour {
 
-
 	public float buttonw;
 	public float buttonh;
 	public float buttonposition;
@@ -13,9 +12,12 @@ public class menu_principal : MonoBehaviour {
 	public bool  showWindowC;
 	public Rect windowRect;
 	public GameObject _logo;
-
-	
+	public GUIStyle btnJogar;
+	public GUIStyle btnInstrucoes;
+	public GUIStyle btnCreditos;
+	public GUIStyle btnFechar;
 void Awake () {
+	
 		buttonh = 50f;
 		buttonw = 200f;
 		buttonposition = Screen.height/4;
@@ -29,13 +31,16 @@ void Awake () {
 		_logo = Instantiate (_logo.transform, 
 		                     _logo.transform.position, 
 		                     _logo.transform.rotation) as GameObject;
+
+		Debug.Log(Screen.width);
+		Debug.Log(Screen.height);
 	}
 	
 	void OnGUI() {
 	
 		if(showWindowI){
 			
-			windowRect = GUI.Window(0, windowRect, DoMyWindowI, "Instruções");	
+			windowRect = GUI.Window(0, windowRect, DoMyWindowI, "Como jogar");	
 		}
 
 		
@@ -44,12 +49,13 @@ void Awake () {
 			windowRect = GUI.Window(0, windowRect, DoMyWindowC, "Creditos");	
 		}
 
-		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 - 65, buttonw, buttonh), "Jogar")){
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 - 65, buttonw, buttonh), "", btnJogar)){
 			
 			Application.LoadLevel(1);
+		
 			
 		}
-		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2, buttonw, buttonh), "Instruções")){
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2, buttonw, buttonh), "", btnInstrucoes)){
 
 
 			showWindowI = true;
@@ -58,7 +64,7 @@ void Awake () {
 			}
 			
 
-		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 + 65, buttonw, buttonh), "Créditos")){
+		if(GUI.Button(new Rect(Screen.width - 250,Screen.height / 2 + 65, buttonw, buttonh), "", btnCreditos)){
 			
 			showWindowC = true;
 			
@@ -69,7 +75,7 @@ void Awake () {
 
 		GUILayout.Label("Para jogar, acerte os itens que aparecem na tela através do touch do celular e " +
 			"equilibre sua glicose pelo maior tempo possível!");
-		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "X")) {
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "", btnFechar )) {
 						showWindowC = false;
 						showWindowI = false;
 				}
@@ -77,9 +83,10 @@ void Awake () {
 	void DoMyWindowC(int windowID) {
 		
 		GUILayout.Label("Aqui irão os créditos.");
-		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "X")) {
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 40, 20), "", btnFechar)) {
 			showWindowC = false;
 			showWindowI = false;
 		}
 	}
+
 }
