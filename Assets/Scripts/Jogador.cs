@@ -6,7 +6,6 @@ public class Jogador : MonoBehaviour {
 
 
 
-	private GameManager gameManager;
 	public GameObject LifeBar;
 	public AudioClip clipAudio;
 
@@ -26,7 +25,7 @@ public class Jogador : MonoBehaviour {
 		trail = this.GetComponent<TrailRenderer> () as TrailRenderer;
 		trail.sortingLayerName = "foreground";
 
-		gameManager = gameObject.GetComponent<GameManager> ();
+
 
 }
 	    
@@ -72,13 +71,16 @@ public class Jogador : MonoBehaviour {
 	{
 		// Colisao de todos os elementos que aparecerao em cena
 
-		if ( collisor.tag == "Sorvete"){
 
-			if (gameManager.QntVida >10)
+
+		if ( collisor.tag == "Exercicio"){
+
+		
+
+			if (GameManager.QntVida >10)
 			{
-				gameManager.QntVida -= 57f;
-				Pontuar();
-			Debug.Log("colidiu");
+			Pontuar();
+			GameManager.QntVida -=57f;
 			}
 
 
@@ -252,6 +254,7 @@ public class Jogador : MonoBehaviour {
 		myText.guiText.text = "-30";
 		Destroy(texto,1);
 	}
+
 
 }
 

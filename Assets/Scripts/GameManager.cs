@@ -12,12 +12,15 @@ public class GameManager : MonoBehaviour {
 	public float width;
 	public float heightButton;
 	public float posNumero;
-	public float QntVida;
+	public static float QntVida;
 	public float MaxQntVida;
 	public GUISkin layoutBarra;
-	public Texture2D fundomax;
-	public Texture2D fundomin;
-	public Texture2D fundobom;
+	public Texture2D fundomax_G;
+	public Texture2D fundomin_G;
+	public Texture2D fundobom_G;
+	public Texture2D fundomax_M;
+	public Texture2D fundomin_M;
+	public Texture2D fundobom_M;
 	private float rotationAngle = 180;
 	public GUIStyle indicador;
 	public GameObject personagem;
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour {
 	void Awake() {
 		
 		QntVida = 100;
-		MaxQntVida = 300;
+		MaxQntVida = 400;
 		width = Screen.width/13;
 		posX = Screen.width - width;
 		posY = Screen.height/4;
@@ -83,35 +86,6 @@ public class GameManager : MonoBehaviour {
 	
 				   }
 
-	// Metodo para pegar touch ou clique do mouse
-	/*private void Plataforma()
-	{
-		
-		
-		if(Application.platform == RuntimePlatform.Android)
-		{
-			
-			if(Input.touchCount == 1)
-			{
-				position = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, 
-				                                                      Input.GetTouch(0).position.y,1));
-				
-				transform.position = new Vector2(position.x, position.y);
-				collider2D.enabled = true;
-				return;
-			}
-			collider2D.enabled = false;
-		}
-		else 
-		{
-			
-			position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 
-			                                                      Input.mousePosition.y,0));
-			
-			transform.position = new Vector2(position.x, position.y);
-		}
-		
-	}*/
 
 	void OnGUI(){
 		GUI.skin = layoutBarra;
@@ -124,23 +98,36 @@ public class GameManager : MonoBehaviour {
 		GUI.Label(new Rect(posX -10,posNumero, 100f, 50f),QntVida.ToString("F0"),indicador );
 		
 		
+		if(QntVida > 320){
+			
+			GUI.skin.button.normal.background = fundomax_G;
+			
+		}
 				
-		if(QntVida > 200){
+		if( QntVida > 250){
 			
-			GUI.skin.button.normal.background = fundomax;
-			
-		}
-		if(QntVida > 70 && QntVida < 200){
-			
-			GUI.skin.button.normal.background = fundobom;
+			GUI.skin.button.normal.background = fundomax_M;
 			
 		}
-		if(QntVida < 70){
+		if(QntVida > 120 && QntVida < 250){
 			
-			GUI.skin.button.normal.background = fundomin;
+			GUI.skin.button.normal.background = fundobom_M;
+			
+		}
+		if(QntVida > 70 && QntVida < 120){
+			
+			GUI.skin.button.normal.background = fundobom_G;
+			
+		}
+		if(QntVida < 70 && QntVida > 40 ){
+			
+			GUI.skin.button.normal.background = fundomin_M;
 		}
 		
-		
+		if(QntVida < 40 ){
+			
+			GUI.skin.button.normal.background = fundomin_G;
+		}
 		
 		
 	}

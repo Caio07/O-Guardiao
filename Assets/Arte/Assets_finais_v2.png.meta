@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 85f065aa0a71d10458ec4dce8ba3f576
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Assets_finais_v2_0
+    21300002: Assets_finais_v2_1
+    21300004: Assets_finais_v2_2
+    21300006: Assets_finais_v2_3
+    21300008: Assets_finais_v2_4
+    21300010: Assets_finais_v2_5
+    21300012: Assets_finais_v2_6
+    21300014: Assets_finais_v2_7
+    21300016: Assets_finais_v2_8
+    21300018: Assets_finais_v2_9
+    21300020: Assets_finais_v2_10
+    21300022: Assets_finais_v2_11
+    21300024: Assets_finais_v2_12
+    21300026: Assets_finais_v2_13
+    21300028: Assets_finais_v2_14
+    21300030: Assets_finais_v2_15
+    21300032: Assets_finais_v2_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Assets_finais_v2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 482
+        width: 587
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_1
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 883
+        width: 225
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_2
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 866
+        width: 191
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_3
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 891
+        width: 198
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_4
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 884
+        width: 203
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_5
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 672
+        width: 140
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_6
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 33
+        width: 89
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_7
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 33
+        width: 88
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_8
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 33
+        width: 89
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_9
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 33
+        width: 89
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_10
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 33
+        width: 88
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_11
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 33
+        width: 89
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_12
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 25
+        width: 103
+        height: 806
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 587
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_14
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 446
+        width: 206
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_15
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 254
+        width: 174
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Assets_finais_v2_16
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 69
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
