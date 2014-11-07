@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GerenciarCamera : MonoBehaviour {
 
-	public  Camera camera;
+	public Camera camera;
 	private static float minX;
 	private static float maxX;
 	private static float minY;
