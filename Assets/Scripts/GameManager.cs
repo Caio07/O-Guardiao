@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	public float heightButton;
 	public float posNumero;
 	public static float QntVida;
-	public float MaxQntVida;
+	public static float MaxQntVida;
 	public GUISkin layoutBarra;
 	public Texture2D fundomax_G;
 	public Texture2D fundomin_G;
@@ -24,11 +24,13 @@ public class GameManager : MonoBehaviour {
 	private float rotationAngle = 180;
 	public GUIStyle indicador;
 	public GameObject personagem;
+	//private Pontuacao _pontuacao;	
 
 
 
 	void Awake() {
-		
+
+
 		QntVida = 100;
 		MaxQntVida = 400;
 		width = Screen.width/13;
@@ -44,52 +46,68 @@ public class GameManager : MonoBehaviour {
 		                      LifeBar.transform.position, 
 		                      LifeBar.transform.rotation) as GameObject;*/
 
+		/*_pontuacao = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>() 
+			as Pontuacao;*/
 
 				}
 
 	void Start () {
-	
+
 
 	}
 	
 
 	void Update () {
 
-		//Plataforma ();
+	
+			
 		//criar barra de vida
 		
 		posNumero =  Screen.height/1.4f * (QntVida/MaxQntVida);
 		heightButton = Screen.height/1.4f * (QntVida/MaxQntVida);
 
-		/*if( QntVida < MaxQntVida)
+		if( QntVida < MaxQntVida)
 		{
 				QntVida -= 0.1f;
 				
-		}*/
+		}
 		
-		if(QntVida<=30)
+		if(QntVida<=20)
 		{
 			Handheld.Vibrate();
-			collider2D.enabled = false;
 			QntVida += 5;
 			Invoke("LoadLevel", 1f);
 		}
 		
 		
 		
-		if(QntVida > 270)
+		if(QntVida > 350)
 		{
-			collider2D.enabled = false;
+
 			Invoke("LoadLevel", 1f);
 			
 		}
-	
-				   }
+
+		
+	}
+
+	void Multiplicador(string mult){
+		
+		
+		GameObject texto = new GameObject("Multiplicar");
+		Instantiate(texto);
+		GUIText myText = texto.AddComponent<GUIText>();
+		myText.transform.position = new Vector3(0.09f,0.8f,0f);
+		
+		myText.guiText.text = mult;
+		myText.guiText.fontSize = 14;
+		iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+		Destroy(texto,1);
+	}
 
 
 	void OnGUI(){
 		GUI.skin = layoutBarra;
-		
 		Vector2 Pivot = new Vector2(posX + width / 2.0f, posY + height / 2.0f);
 		GUIUtility.RotateAroundPivot(rotationAngle, Pivot);
 		GUI.Button(new Rect(posX,posY,width,heightButton)," ");	
@@ -117,6 +135,10 @@ public class GameManager : MonoBehaviour {
 		if(QntVida > 70 && QntVida < 120){
 			
 			GUI.skin.button.normal.background = fundobom_G;
+			Multiplicador("x2");
+
+
+
 			
 		}
 		if(QntVida < 70 && QntVida > 40 ){

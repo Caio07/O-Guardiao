@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\GerenciarCamera.cs" />
      <Compile Include="Assets\Scripts\Instanciar.cs" />
      <Compile Include="Assets\Scripts\Jogador.cs" />
+     <Compile Include="Assets\Scripts\MainUI.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
      <Compile Include="Assets\Scripts\Relogio.cs" />

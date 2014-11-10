@@ -27,6 +27,7 @@ public class Jogador : MonoBehaviour {
 
 
 
+
 }
 	    
 
@@ -73,13 +74,14 @@ public class Jogador : MonoBehaviour {
 
 
 
+
 		if ( collisor.tag == "Exercicio"){
 
 		
 
 			if (GameManager.QntVida >10)
 			{
-			Pontuar();
+			Pontuar("-57");
 			GameManager.QntVida -=57f;
 			}
 
@@ -88,23 +90,19 @@ public class Jogador : MonoBehaviour {
 			collisor.GetComponent<Acao>().Destroy();
 			Audio(clipAudio);
 
-			}/*
+			}
 
 		else if(collisor.tag == "Insulina"){
 
 		
-			if ( _gameManager.QntVida < _gameManager.MaxQntVida)
+			if ( GameManager.QntVida >10)
 			{
-				_gameManager.QntVida -= 70f;
+
+				Pontuar("-70");
+				GameManager.QntVida -= 70f;
+			
 
 
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "-70";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 				
 			}
 
@@ -116,19 +114,14 @@ public class Jogador : MonoBehaviour {
 		else if(collisor.tag == "Abacate"){
 
 
-			if (QntVida<MaxQntVida)
+			if (GameManager.QntVida >10)
 			{
-				QntVida = QntVida - 30f;
+
+				Pontuar("-30");
+				GameManager.QntVida -= 30f;
 
 
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "-30";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
-			}
+							}
 
 			collisor.GetComponent<Acao>().Destroy();
 			Audio(clipAudio);
@@ -139,17 +132,12 @@ public class Jogador : MonoBehaviour {
 		else if(collisor.tag == "Sorvete"){
 	
 			
-			if (QntVida<MaxQntVida)
+			if (GameManager.QntVida<GameManager.MaxQntVida)
 			{
-				QntVida = QntVida + 57f;
+
+				Pontuar("+57");
+				GameManager.QntVida += 57f;
 		
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "+57";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 			}
 			
 			collisor.GetComponent<Acao>().Destroy();
@@ -159,17 +147,10 @@ public class Jogador : MonoBehaviour {
 		else if(collisor.tag == "Cenoura"){
 			
 
-			if (QntVida<MaxQntVida)
+			if (GameManager.QntVida<GameManager.MaxQntVida)
 			{
-				QntVida = QntVida + 35f;
-		
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "+35";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+				Pontuar("+35");
+				GameManager.QntVida += 35f;
 				
 			}
 
@@ -181,17 +162,10 @@ public class Jogador : MonoBehaviour {
 		else if(collisor.tag == "Pao"){
 			
 						
-			if (QntVida<MaxQntVida)
+			if (GameManager.QntVida<GameManager.MaxQntVida)
 			{
-				QntVida = QntVida + 95f;
-
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "+95";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
+				Pontuar("+95");
+				GameManager.QntVida += 95f;
 
 			}
 
@@ -203,18 +177,12 @@ public class Jogador : MonoBehaviour {
 		else if(collisor.tag == "Refrigerante"){
 			
 					
-			if (QntVida<MaxQntVida)
+			if (GameManager.QntVida<GameManager.MaxQntVida)
 			{
-				QntVida = QntVida + 63f;
 
+				Pontuar("+63");
+				GameManager.QntVida += 63f;
 
-				GameObject texto = new GameObject("Pontuou");
-				Instantiate(texto);
-				GUIText myText = texto.AddComponent<GUIText>();
-				myText.transform.position = new Vector3(0.5f,0.5f,0f);
-				myText.guiText.text = "+63";
-				myText.guiText.fontSize = 24;
-				iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 
 				
 			}
@@ -223,7 +191,7 @@ public class Jogador : MonoBehaviour {
 			Audio(clipAudio);
 			
 			
-		}*/
+		}
 	}
 
 	void Audio(AudioClip clip){
@@ -240,7 +208,7 @@ public class Jogador : MonoBehaviour {
 
 
 
-	void Pontuar(){
+	void Pontuar(string qntPontos){
 
 		
 		GameObject texto = new GameObject("Pontuou");
@@ -248,10 +216,9 @@ public class Jogador : MonoBehaviour {
 		GUIText myText = texto.AddComponent<GUIText>();
 		myText.transform.position = new Vector3(0.5f,0.5f,0f);
 		
-		myText.guiText.text = "-50";
+		myText.guiText.text = qntPontos;
 		myText.guiText.fontSize = 24;
 		iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
-		myText.guiText.text = "-30";
 		Destroy(texto,1);
 	}
 

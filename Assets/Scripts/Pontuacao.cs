@@ -5,28 +5,36 @@ public class Pontuacao : MonoBehaviour {
 
 
 	//private int recorde;
-	//private static int pontos = 0;
-	//public GameObject textPontos;
 
+	public float pontos;
+	public float speed;
+
+	public float timeRemaining;
+	public float startTime;
 
 	// Use this for initialization
 	void Start () {
 	
-		//pontos = 0;
-		//guiText.text = "0";
+		pontos = 0;
+		speed = 3F;
+
 		//Recorde();
 
 	}
+	void Update(){
 
-	/*public void Hit(){
+	
+		pontos =(int)Time.timeSinceLevelLoad % 60 * speed;
+		guiText.text = pontos.ToString();
 
-		++pontos;
-		//guiText.text = pontos.ToString();
+	}
 
+	public void Hit(float multiplicador){
+		
+		pontos *= multiplicador;		
+		
+	}
 
-
-
-	}*/
 
 	/*public void Recorde(){
 
