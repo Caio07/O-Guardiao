@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	public MotionBlur mBlur;
 
 	private Vector3 position;
 
@@ -23,7 +24,9 @@ public class GameManager : MonoBehaviour {
 	public Texture2D fundobom_M;
 	private float rotationAngle = 180;
 	public GUIStyle indicador;
-	public GameObject personagem;
+
+
+	//public GameObject personagem;
 	//private Pontuacao _pontuacao;	
 
 
@@ -38,9 +41,9 @@ public class GameManager : MonoBehaviour {
 		posY = Screen.height/4;
 		height = Screen.height/1.4f;
 
-		personagem = Instantiate (personagem.transform, 
+		/*personagem = Instantiate (personagem.transform, 
 		                          personagem.transform.position, 
-		                          personagem.transform.rotation) as GameObject;
+		                          personagem.transform.rotation) as GameObject;*/
 
 		/*LifeBar = Instantiate (LifeBar.transform, 
 		                      LifeBar.transform.position, 
@@ -52,6 +55,8 @@ public class GameManager : MonoBehaviour {
 				}
 
 	void Start () {
+		mBlur = GameObject.Find("Main Camera").GetComponent<MotionBlur>();
+		mBlur.enabled = false;
 
 
 	}
@@ -63,7 +68,7 @@ public class GameManager : MonoBehaviour {
 			
 		//criar barra de vida
 		
-		posNumero =  Screen.height/1.4f * (QntVida/MaxQntVida);
+		//posNumero =  Screen.height/1.4f * (QntVida/MaxQntVida);
 		heightButton = Screen.height/1.4f * (QntVida/MaxQntVida);
 
 		if( QntVida < MaxQntVida)
@@ -113,29 +118,31 @@ public class GameManager : MonoBehaviour {
 		GUI.Button(new Rect(posX,posY,width,heightButton)," ");	
 		GUI.Box(new Rect(posX,posY,width,height)," ");
 		GUI.matrix = Matrix4x4.identity;
-		GUI.Label(new Rect(posX -10,posNumero, 100f, 50f),QntVida.ToString("F0"),indicador );
+		GUI.Label(new Rect(posX -50,posY, 100f, 50f),QntVida.ToString("F0"),indicador );
 		
 		
 		if(QntVida > 320){
 			
 			GUI.skin.button.normal.background = fundomax_G;
-			
+		
 		}
 				
 		if( QntVida > 250){
 			
 			GUI.skin.button.normal.background = fundomax_M;
-			
+			mBlur.enabled = true;
+
 		}
 		if(QntVida > 120 && QntVida < 250){
 			
 			GUI.skin.button.normal.background = fundobom_M;
-			
+			//Multiplicador("x2");
+			mBlur.enabled = false;
 		}
 		if(QntVida > 70 && QntVida < 120){
 			
 			GUI.skin.button.normal.background = fundobom_G;
-			Multiplicador("x2");
+			//Multiplicador("x4");
 
 
 
@@ -144,6 +151,8 @@ public class GameManager : MonoBehaviour {
 		if(QntVida < 70 && QntVida > 40 ){
 			
 			GUI.skin.button.normal.background = fundomin_M;
+			Handheld.Vibrate();
+
 		}
 		
 		if(QntVida < 40 ){
