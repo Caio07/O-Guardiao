@@ -21,7 +21,7 @@ public class Jogador : MonoBehaviour {
 	void Start () {
 
 
-
+		renderer.enabled = true;
 		trail = this.GetComponent<TrailRenderer> () as TrailRenderer;
 		trail.sortingLayerName = "foreground";
 

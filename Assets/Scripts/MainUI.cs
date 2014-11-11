@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MainUI : MonoBehaviour {
 
-	public GUISkin botaoJogar;
+	public GUIStyle btnJogar;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,9 +14,14 @@ public class MainUI : MonoBehaviour {
 	
 	}
 
-	void OnGUi(){
+	void OnGUI() {
 
+		
+		GUI.Button (new Rect (Screen.width / 3, Screen.height / 2, 200F, 50F), "", btnJogar);
+			
 
-		GUI.Button(new Rect(0.5F,0.5F, 400,400)," ");
-	}
+			
+			
+		
+}
 }

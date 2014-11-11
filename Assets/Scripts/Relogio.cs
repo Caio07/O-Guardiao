@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Relogio : MonoBehaviour {
 
 
-	public float startTime;
+	public static float startTime;
 	public float timeRemaining;
 
 	

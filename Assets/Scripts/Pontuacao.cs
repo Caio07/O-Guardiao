@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Pontuacao : MonoBehaviour {
@@ -6,11 +6,9 @@ public class Pontuacao : MonoBehaviour {
 
 	//private int recorde;
 
-	public float pontos;
+	public static float pontos;
 	public float speed;
 
-	public float timeRemaining;
-	public float startTime;
 
 	// Use this for initialization
 	void Start () {

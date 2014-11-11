@@ -1,44 +1,26 @@
-Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-2-656
+Base path: C:/Program Files/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-2-2080
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=4 type=0 insize=1059 outsize=1534 kw= ok=1
+  api=9 type=0 insize=912 outsize=743 kw= ok=1
 Cmd: compileSnippet
-  api=8 type=0 insize=1059 outsize=2340 kw= ok=1
+  api=9 type=1 insize=912 outsize=7 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=1059 outsize=1144 kw= ok=1
+  api=9 type=0 insize=867 outsize=630 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=11209 outsize=990 kw= ok=1
+  api=9 type=1 insize=867 outsize=7 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=11209 outsize=2160 kw= ok=1
+  api=4 type=0 insize=912 outsize=1071 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=11201 outsize=990 kw= ok=1
+  api=8 type=0 insize=912 outsize=1560 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=11201 outsize=843 kw= ok=1
+  api=4 type=1 insize=912 outsize=738 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=11209 outsize=990 kw= ok=1
+  api=4 type=0 insize=867 outsize=1071 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=11209 outsize=1916 kw= ok=1
+  api=8 type=0 insize=867 outsize=1560 kw= ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=11215 outsize=990 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=11215 outsize=3703 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=11225 outsize=990 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=11225 outsize=5881 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=11212 outsize=990 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=11212 outsize=1615 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=11211 outsize=990 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=11211 outsize=3013 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=11217 outsize=990 kw= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=11217 outsize=9277 kw= ok=1
+  api=4 type=1 insize=867 outsize=600 kw= ok=1
 Unhandled exception: Readfile from pipe failed. GLE=O pipe foi finalizado.
 
 
