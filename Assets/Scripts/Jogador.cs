@@ -5,7 +5,7 @@ public class Jogador : MonoBehaviour {
 
 
 
-
+	public Font fonte;
 	public GameObject LifeBar;
 	public AudioClip clipAudio;
 
@@ -215,9 +215,11 @@ public class Jogador : MonoBehaviour {
 		Instantiate(texto);
 		GUIText myText = texto.AddComponent<GUIText>();
 		myText.transform.position = new Vector3(0.5f,0.5f,0f);
-		
+
+
+		myText.guiText.font= fonte;
 		myText.guiText.text = qntPontos;
-		myText.guiText.fontSize = 24;
+		myText.guiText.fontSize = 40;
 		iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
 		Destroy(texto,1);
 	}

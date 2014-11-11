@@ -3,14 +3,21 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour {
 
-	public float buttonw;
-	public float buttonh;
+	private float buttonw;
+	private float buttonh;
+	public GUIStyle btnReiniciar;
+	public GameObject finalScoretext;
 
+
+	private GameManager _gameManager;
 
 	void Start () {
 	
+
 		buttonh = 50f;
 		buttonw = 200f;
+		finalScoretext.guiText.text = "Pontuaçao Final:\n" + Pontuacao.pontos;
+
 	}
 	
 
@@ -18,22 +25,28 @@ public class GameOver : MonoBehaviour {
 	void OnGUI(){
 
 
-		if(GUI.Button(new Rect(Screen.width/6,Screen.height / 2 , buttonw, buttonh), "Reiniciar")){
-			
-			Application.LoadLevel("Jogo");
-			
-		}
+		if(GUI.Button(new Rect(Screen.width/2 -100,Screen.height -100 , buttonw, buttonh),"", btnReiniciar)){
 
-	
-		if(GUI.Button(new Rect(Screen.width/2 + 30,Screen.height / 2, buttonw, buttonh), "Voltar ao menu")){
-			
-			
-			Application.LoadLevel("Escolha_personagem");
-			
-			
-		}
+		
+			Application.LoadLevel("Jogo");		
+		
 
+		}
 
 
 	}
+	/*public void Recorde(){
+		
+		if( Pontuacao.pontos > PlayerPrefs.GetInt("Recorde")){
+			recorde = (int) Pontuacao.pontos;
+			PlayerPrefs.SetInt("Recorde", recorde);
+			
+		}
+		if(recorde != null){
+			
+			gRecorde.guiText.text = "Recorde:" + " " + 
+				PlayerPrefs.GetInt("Recorde").ToString();
+		}
+		
+	}*/
 }

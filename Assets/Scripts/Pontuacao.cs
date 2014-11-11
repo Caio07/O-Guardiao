@@ -4,10 +4,10 @@ using System.Collections;
 public class Pontuacao : MonoBehaviour {
 
 
-	//private int recorde;
+
 
 	public static float pontos;
-	public float speed;
+	public static float speed;
 
 
 	// Use this for initialization
@@ -34,18 +34,7 @@ public class Pontuacao : MonoBehaviour {
 	}
 
 
-	/*public void Recorde(){
 
-		if( pontos > PlayerPrefs.GetInt("Recorde")){
 
-			PlayerPrefs.SetInt("Recorde", pontos);
 
-		}
-		if(textPontos != null){
-
-			textPontos.guiText.text = "Recorde:" + " " + 
-				PlayerPrefs.GetInt("Recorde").ToString();
-		}
-
-	}*/
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a8d5ade0ddb44c84ca0da9b6a9fbc514
+guid: 65bf67973ecfa0341aab63f17ecdaf8a
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -40,7 +40,11 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Web
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
   spriteSheet:
     sprites: []
   spritePackingTag: 

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 	public GUIStyle indicador;
 	private bool guiAtivo;
 	private bool startAtivo;
-	private bool gameOverAtivo;
+
 
 	public enum gameState{
 		main,
@@ -38,11 +38,11 @@ public class GameManager : MonoBehaviour {
 		gameOver,
 
 	}
-	public gameState state;
+	public static gameState state;
 	public GameObject mainUI;
 	public GameObject gameUI;
 	public GameObject gameOverUI;
-	public GameObject finalScoretext;
+
 
 	//public GameObject personagem;
 	//private Pontuacao _pontuacao;	
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 		MaxQntVida = 400;
 		width = Screen.width/13;
 		posX = Screen.width - (width + 15);
-		posY = Screen.height/4;
+		posY = Screen.height/6;
 		height = Screen.height/1.4f;
 
 		/*personagem = Instantiate (personagem.transform, 
@@ -73,11 +73,10 @@ public class GameManager : MonoBehaviour {
 				}
 
 	void Start () {
-		//mBlur = GameObject.Find("Main Camera").GetComponent<MotionBlur>();
-		//mBlur.enabled = false;
+		mBlur = GameObject.Find("Main Camera").GetComponent<MotionBlur>();
+		mBlur.enabled = false;
 		guiAtivo = false;
 		startAtivo = false;
-		gameOverAtivo = false;
 		mainUI.SetActive(false);
 		gameUI.SetActive(false);
 		gameOverUI.SetActive (false);
@@ -102,11 +101,12 @@ public class GameManager : MonoBehaviour {
 				switch (state) {
 				case gameState.main:
 				startAtivo = true;
+			Time.timeScale = 0;
 						break;
 		
 				case gameState.game:
 			//criar barra de vida
-			
+			Time.timeScale = 1;
 						guiAtivo = true;
 						startAtivo = false;
 						heightButton = Screen.height / 1.4f * (QntVida / MaxQntVida);
@@ -119,8 +119,8 @@ public class GameManager : MonoBehaviour {
 						if (QntVida <= 20) {
 								//Handheld.Vibrate();
 								QntVida += 5;
-								StartCoroutine(GameEnd());
-								//Invoke ("LoadLevel", 1f);
+								//StartCoroutine(GameEnd());
+								Invoke ("LoadLevel", 1f);
 						}
 			
 			
@@ -134,41 +134,15 @@ public class GameManager : MonoBehaviour {
 		
 				case gameState.gameOver:
 				guiAtivo = false;
-				gameOverAtivo = true;
 						break;
 				}
 
 		}
-	/*void Multiplicador(string mult){
-		
-		
-		GameObject texto = new GameObject("Multiplicar");
-		Instantiate(texto);
-		GUIText myText = texto.AddComponent<GUIText>();
-		myText.transform.position = new Vector3(0.09f,0.8f,0f);
-		
-		myText.guiText.text = mult;
-		myText.guiText.fontSize = 14;
-		iTween.FadeTo( texto, iTween.Hash( "alpha" , 0.0f , "time" , .5 , "easeType", "easeInSine") );
-		Destroy(texto,1);
-	}*/
-
-	IEnumerator GameEnd(){
-		mainUI.SetActive (false);
-		gameUI.SetActive (false);
-		gameOverUI.SetActive (true);
-		state = gameState.gameOver;
-
-		finalScoretext.guiText.text = "Pontuaçao Final";
 
 
-		StopAllCoroutines ();
-		QntVida = 100;
 
-		yield return null;
-	}
 
-	IEnumerator GameStart(){
+	public IEnumerator GameStart(){
 
 		mainUI.SetActive (false);
 		gameUI.SetActive (true);
@@ -179,6 +153,12 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+
+
+	void LoadLevel(){
+
+		Application.LoadLevel(1);
+	}
 	void OnGUI(){
 		if (guiAtivo) {
 
@@ -188,66 +168,60 @@ public class GameManager : MonoBehaviour {
 						GUI.Button (new Rect (posX, posY, width, heightButton), " ");	
 						GUI.Box (new Rect (posX, posY, width, height), " ");
 						GUI.matrix = Matrix4x4.identity;
-						GUI.Label (new Rect (posX - 50, posY, 100f, 50f), QntVida.ToString ("F0"), indicador);
+						GUI.Label (new Rect (posX - 20, Screen.height/2 + 300, 100f, 50f), QntVida.ToString ("F0"), indicador);
 		
 		
 						if (QntVida > 320) {
 			
 								GUI.skin.button.normal.background = fundomax_G;
-		
+								Pontuacao.speed = 2F;
 						}
 				
 						if (QntVida > 250) {
 			
 								GUI.skin.button.normal.background = fundomax_M;
-								//mBlur.enabled = true;
+								mBlur.enabled = true;
+								Pontuacao.speed = 2F;
 
 						}
 						if (QntVida > 120 && QntVida < 250) {
 			
 								GUI.skin.button.normal.background = fundobom_M;
-								//Multiplicador("x2");
-								//mBlur.enabled = false;
+								mBlur.enabled = false;
+								Pontuacao.speed = 3F;
 						}
 						if (QntVida > 70 && QntVida < 120) {
 			
 								GUI.skin.button.normal.background = fundobom_G;
-								//Multiplicador("x4");
+								Pontuacao.speed = 4F;
 
 
 
 			
 						}
 						if (QntVida < 70 && QntVida > 40) {
-			
+								
+								Pontuacao.speed = 2F;
 								GUI.skin.button.normal.background = fundomin_M;
 								//Handheld.Vibrate();
 
 						}
 		
 						if (QntVida < 40) {
-			
+								Pontuacao.speed = 2F;
 								GUI.skin.button.normal.background = fundomin_G;
 						}
 				}
 
 		if (startAtivo) {
 				
-			if(GUI.Button (new Rect (Screen.width / 3, Screen.height / 2, 200F, 50F), "", btnJogar)){
+			if(GUI.Button (new Rect (Screen.width / 2 - 200, Screen.height /3 + 150, 400F, 100F), "", btnJogar)){
 
 				StartCoroutine(GameStart());
 			}
 		}
 
-		if (gameOverAtivo) {
-			
-			if(GUI.Button (new Rect (Screen.width / 3, Screen.height / 2, 200F, 50F), "", btnReiniciar)){
-				
-				StartCoroutine(GameStart());
-				gameOverAtivo = false;
 
-			}
-		}
 	}
 
 
