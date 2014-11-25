@@ -4,7 +4,7 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 
 
-
+	public float distance = 10;
 	public Font fonte;
 	public GameObject LifeBar;
 	public AudioClip clipAudio;
@@ -14,16 +14,14 @@ public class Jogador : MonoBehaviour {
 	public float posX;
 	public float posY;
 
-	TrailRenderer trail;
+
 
 
 
 	void Start () {
 
 
-		renderer.enabled = true;
-		trail = this.GetComponent<TrailRenderer> () as TrailRenderer;
-		trail.sortingLayerName = "foreground";
+	
 
 
 
@@ -34,7 +32,9 @@ public class Jogador : MonoBehaviour {
 	void Update () 
 {
 		Plataforma ();
-	
+		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Vector2 pos = r.GetPoint(distance);
+		transform.position = pos;
 }
 
 

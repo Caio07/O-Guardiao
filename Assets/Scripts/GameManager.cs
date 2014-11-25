@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject Score;
 	public GameObject Tempo;
 
+
 	public GUIStyle btnJogar;
 	public GUIStyle btnReiniciar;
 	private float posX;
@@ -44,7 +45,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject gameOverUI;
 
 
-	//public GameObject personagem;
+	public GameObject personagem;
+	public GameObject LifeBar;
 	//private Pontuacao _pontuacao;	
 
 
@@ -59,13 +61,9 @@ public class GameManager : MonoBehaviour {
 		posY = Screen.height/6;
 		height = Screen.height/1.4f;
 
-		/*personagem = Instantiate (personagem.transform, 
-		                          personagem.transform.position, 
-		                          personagem.transform.rotation) as GameObject;*/
 
-		/*LifeBar = Instantiate (LifeBar.transform, 
-		                      LifeBar.transform.position, 
-		                      LifeBar.transform.rotation) as GameObject;*/
+
+
 
 		/*_pontuacao = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>() 
 			as Pontuacao;*/
@@ -107,6 +105,7 @@ public class GameManager : MonoBehaviour {
 				case gameState.game:
 			//criar barra de vida
 			Time.timeScale = 1;
+	
 						guiAtivo = true;
 						startAtivo = false;
 						heightButton = Screen.height / 1.4f * (QntVida / MaxQntVida);
@@ -148,6 +147,12 @@ public class GameManager : MonoBehaviour {
 		gameUI.SetActive (true);
 		gameOverUI.SetActive (false);
 		state = gameState.game;
+		personagem = Instantiate (personagem.transform, 
+		                          personagem.transform.position, 
+		                          personagem.transform.rotation) as GameObject;
+		LifeBar = Instantiate (LifeBar.transform, 
+		                       LifeBar.transform.position, 
+		                       LifeBar.transform.rotation) as GameObject;
 
 		yield return null;
 
