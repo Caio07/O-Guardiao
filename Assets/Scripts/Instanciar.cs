@@ -4,7 +4,7 @@ using System.Collections;
 public class Instanciar : MonoBehaviour {
 
 	public float minSpawntime = 1;
-	public float maxSpawntime = 5;
+	public float maxSpawntime = 10;
 	public float spawnItem;
 
 	public GameObject [] Itens;
@@ -24,7 +24,30 @@ public class Instanciar : MonoBehaviour {
 		maxX = GerenciarCamera.Maxx();
 		StartCoroutine("Instanciador");
 	}
-	
+
+	void Update(){
+
+		if(Pontuacao.pontos > 40){
+
+			maxSpawntime = 2;
+
+		}
+		else if(Pontuacao.pontos > 30){
+			
+			maxSpawntime = 4;
+			
+		}
+		else if(Pontuacao.pontos > 20){
+			
+			maxSpawntime = 6;
+			
+		}
+		else if(Pontuacao.pontos > 10){
+			
+			maxSpawntime = 8;
+			
+		}
+	}
 
 
 	bool RandomItem(){

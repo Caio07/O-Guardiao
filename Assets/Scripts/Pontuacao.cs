@@ -10,13 +10,15 @@ public class Pontuacao : MonoBehaviour {
 	public static float speed;
 
 
+
+
+
 	// Use this for initialization
 	void Start () {
 	
 		pontos = 0;
 		speed = 3F;
-
-		//Recorde();
+	
 
 	}
 	void Update(){
@@ -32,6 +34,7 @@ public class Pontuacao : MonoBehaviour {
 		pontos *= multiplicador;		
 		
 	}
+
 
 
 

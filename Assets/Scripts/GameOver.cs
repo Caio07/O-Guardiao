@@ -7,9 +7,9 @@ public class GameOver : MonoBehaviour {
 	private float buttonh;
 	public GUIStyle btnReiniciar;
 	public GameObject finalScoretext;
+	public GameObject txtrecorde;
 
 
-	private GameManager _gameManager;
 
 	void Start () {
 	
@@ -17,9 +17,22 @@ public class GameOver : MonoBehaviour {
 		buttonh = 50f;
 		buttonw = 200f;
 		finalScoretext.guiText.text = "Pontuaçao Final:\n" + Pontuacao.pontos;
+		txtrecorde.guiText.text= "Recorde \n" + PlayerPrefs.GetFloat("Recorde").ToString();
 
 	}
+
 	
+	public void Recorde(){
+		
+		if( Pontuacao.pontos > PlayerPrefs.GetFloat("Recorde"))
+		{
+			
+			PlayerPrefs.SetFloat("Recorde", Pontuacao.pontos);
+		}
+
+		
+		
+	}
 
 
 	void OnGUI(){
@@ -28,25 +41,13 @@ public class GameOver : MonoBehaviour {
 		if(GUI.Button(new Rect(Screen.width/2 -100,Screen.height -100 , buttonw, buttonh),"", btnReiniciar)){
 
 		
-			Application.LoadLevel("Jogo");		
+			Application.LoadLevel("Jogo");	
+
 		
 
 		}
 
 
 	}
-	/*public void Recorde(){
-		
-		if( Pontuacao.pontos > PlayerPrefs.GetInt("Recorde")){
-			recorde = (int) Pontuacao.pontos;
-			PlayerPrefs.SetInt("Recorde", recorde);
-			
-		}
-		if(recorde != null){
-			
-			gRecorde.guiText.text = "Recorde:" + " " + 
-				PlayerPrefs.GetInt("Recorde").ToString();
-		}
-		
-	}*/
+
 }

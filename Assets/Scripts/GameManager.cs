@@ -7,17 +7,29 @@ public class GameManager : MonoBehaviour {
 
 	private Vector3 position;
 
+
+	//GUI
 	public GameObject Score;
 	public GameObject Tempo;
-
-
 	public GUIStyle btnJogar;
 	public GUIStyle btnReiniciar;
+
+
+	public Pontuacao _score;
+
+	//Botao Jogar
+	public float widthJogar;
+	public float heightJogar;
+
+
+	//Posicao GUI
 	private float posX;
 	private float posY;
 	private float height;
 	private float width;
 	private float heightButton;
+
+
 	public static float QntVida;
 	public static float MaxQntVida;
 	public GUISkin layoutBarra;
@@ -29,6 +41,8 @@ public class GameManager : MonoBehaviour {
 	public Texture2D fundobom_M;
 	private float rotationAngle = 180;
 	public GUIStyle indicador;
+
+	//Controlador
 	private bool guiAtivo;
 	private bool startAtivo;
 
@@ -36,18 +50,18 @@ public class GameManager : MonoBehaviour {
 	public enum gameState{
 		main,
 		game,
-		gameOver,
+
 
 	}
 	public static gameState state;
 	public GameObject mainUI;
 	public GameObject gameUI;
-	public GameObject gameOverUI;
+
 
 
 	public GameObject personagem;
 	public GameObject LifeBar;
-	//private Pontuacao _pontuacao;	
+
 
 
 
@@ -60,14 +74,13 @@ public class GameManager : MonoBehaviour {
 		posX = Screen.width - (width + 15);
 		posY = Screen.height/6;
 		height = Screen.height/1.4f;
+		widthJogar = Screen.width / 2;
+		heightJogar = Screen.height / 5;
 
+	
+	
 
-
-
-
-		/*_pontuacao = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>() 
-			as Pontuacao;*/
-
+	
 				}
 
 	void Start () {
@@ -77,7 +90,6 @@ public class GameManager : MonoBehaviour {
 		startAtivo = false;
 		mainUI.SetActive(false);
 		gameUI.SetActive(false);
-		gameOverUI.SetActive (false);
 
 		switch (state) {
 		case gameState.main:
@@ -86,9 +98,7 @@ public class GameManager : MonoBehaviour {
 		case gameState.game:
 			gameUI.SetActive(true);
 			break;
-		case gameState.gameOver:
-			gameOverUI.SetActive (true);
-			break;
+
 		}
 
 	}
@@ -112,14 +122,15 @@ public class GameManager : MonoBehaviour {
 
 						if (QntVida < MaxQntVida) {
 								QntVida -= 0.1f;
-					
+								
 						}
 			
 						if (QntVida <= 20) {
 								//Handheld.Vibrate();
 								QntVida += 5;
-								//StartCoroutine(GameEnd());
 								Invoke ("LoadLevel", 1f);
+								//_score.Recorde();
+								
 						}
 			
 			
@@ -131,9 +142,9 @@ public class GameManager : MonoBehaviour {
 						}
 						break;
 		
-				case gameState.gameOver:
+				/*case gameState.gameOver:
 				guiAtivo = false;
-						break;
+						break;*/
 				}
 
 		}
@@ -143,9 +154,10 @@ public class GameManager : MonoBehaviour {
 
 	public IEnumerator GameStart(){
 
+
+			
 		mainUI.SetActive (false);
 		gameUI.SetActive (true);
-		gameOverUI.SetActive (false);
 		state = gameState.game;
 		personagem = Instantiate (personagem.transform, 
 		                          personagem.transform.position, 
@@ -153,6 +165,9 @@ public class GameManager : MonoBehaviour {
 		LifeBar = Instantiate (LifeBar.transform, 
 		                       LifeBar.transform.position, 
 		                       LifeBar.transform.rotation) as GameObject;
+
+		_score = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>()
+			as Pontuacao;
 
 		yield return null;
 
@@ -163,6 +178,8 @@ public class GameManager : MonoBehaviour {
 	void LoadLevel(){
 
 		Application.LoadLevel(1);
+
+
 	}
 	void OnGUI(){
 		if (guiAtivo) {
