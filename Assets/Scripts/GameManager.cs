@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour {
 
 		if (startAtivo) {
 				
-			if(GUI.Button (new Rect (Screen.width / 2 - 200, Screen.height /3 + 150, 400F, 100F), "", btnJogar)){
+			if(GUI.Button (new Rect (Screen.width / 2 - 200, Screen.height /3 + 100, 400F, 100F), "", btnJogar)){
 
 				StartCoroutine(GameStart());
 			}
