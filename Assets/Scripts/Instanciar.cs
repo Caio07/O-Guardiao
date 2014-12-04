@@ -68,7 +68,7 @@ public class Instanciar : MonoBehaviour {
 		yield return new WaitForSeconds(spawnItem);
 		if ( RandomItem()){
 
-			item = Instantiate(Itens[index], new Vector2(Random.Range(minX,maxX), transform.position.y)
+			item = Instantiate(Itens[index], new Vector2(transform.position.x, Random.Range(minX,maxX))
 			                   ,Quaternion.Euler(0,0,Random.Range(-160,160)))as GameObject;
 			Audio(clipAudio);
 

@@ -14,6 +14,9 @@ public class Jogador : MonoBehaviour {
 	public float posX;
 	public float posY;
 
+	public Texture2D cursorTexture;
+	private Vector2 hotSpot = Vector2.zero;
+
 
 
 
@@ -21,7 +24,7 @@ public class Jogador : MonoBehaviour {
 	void Start () {
 
 
-	
+		Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
 
 
 
@@ -42,11 +45,11 @@ public class Jogador : MonoBehaviour {
 	{
 		
 		
-		if(Application.platform == RuntimePlatform.Android)
+		/*if(Application.platform == RuntimePlatform.Android)
 		{
-			
-			if(Input.touchCount == 1)
-			{
+			//Input.touchCount == 1 ||
+
+
 				position = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, 
 				                                                      Input.GetTouch(0).position.y,1));
 				
@@ -55,143 +58,126 @@ public class Jogador : MonoBehaviour {
 				return;
 			}
 			collider2D.enabled = false;
-		}
-		else 
-		{
+		} */
+	if(Input.GetMouseButtonDown(0))
+	{
+		
 			
 			position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 
 			                                                      Input.mousePosition.y,0));
 			
 			transform.position = new Vector2(position.x, position.y);
-		}
+		
 		
 	}
-
+	}
 
 	public void OnTriggerEnter2D(Collider2D collisor)
 	{
 		// Colisao de todos os elementos que aparecerao em cena
 
-
-
-
-		if ( collisor.tag == "Exercicio"){
-
-		
-
-			if (GameManager.QntVida >10)
-			{
-			Pontuar("-57");
-			GameManager.QntVida -=57f;
-			}
-
-
-				
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
-
-			}
-
-		else if(collisor.tag == "Insulina"){
-
-		
-			if ( GameManager.QntVida >10)
-			{
-
-				Pontuar("-70");
-				GameManager.QntVida -= 70f;
-			
-
-
-				
-			}
-
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
-
-			}
-
-		else if(collisor.tag == "Abacate"){
-
-
-			if (GameManager.QntVida >10)
-			{
-
-				Pontuar("-30");
-				GameManager.QntVida -= 30f;
-
-
-							}
-
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
-
-
-			}
-
-		else if(collisor.tag == "Sorvete"){
 	
 			
-			if (GameManager.QntVida<GameManager.MaxQntVida)
-			{
+			
+						if (collisor.tag == "Exercicio") {
 
-				Pontuar("+57");
-				GameManager.QntVida += 57f;
 		
-			}
-			
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
-		}
 
-		else if(collisor.tag == "Cenoura"){
-			
+								if (GameManager.QntVida > 10) {
+										Pontuar ("-57");
+										GameManager.QntVida -= 57f;
+								}
 
-			if (GameManager.QntVida<GameManager.MaxQntVida)
-			{
-				Pontuar("+35");
-				GameManager.QntVida += 35f;
+
 				
-			}
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
 
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
+						} else if (collisor.tag == "Insulina") {
+
+		
+								if (GameManager.QntVida > 10) {
+
+										Pontuar ("-70");
+										GameManager.QntVida -= 70f;
 			
-		}
 
-		else if(collisor.tag == "Pao"){
+
+				
+								}
+
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
+
+						} else if (collisor.tag == "Abacate") {
+
+
+								if (GameManager.QntVida > 10) {
+
+										Pontuar ("-30");
+										GameManager.QntVida -= 30f;
+
+
+								}
+
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
+
+
+						} else if (collisor.tag == "Sorvete") {
+	
+			
+								if (GameManager.QntVida < GameManager.MaxQntVida) {
+
+										Pontuar ("+57");
+										GameManager.QntVida += 57f;
+		
+								}
+			
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
+						} else if (collisor.tag == "Cenoura") {
+			
+
+								if (GameManager.QntVida < GameManager.MaxQntVida) {
+										Pontuar ("+35");
+										GameManager.QntVida += 35f;
+				
+								}
+
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
+			
+						} else if (collisor.tag == "Pao") {
 			
 						
-			if (GameManager.QntVida<GameManager.MaxQntVida)
-			{
-				Pontuar("+95");
-				GameManager.QntVida += 95f;
+								if (GameManager.QntVida < GameManager.MaxQntVida) {
+										Pontuar ("+95");
+										GameManager.QntVida += 95f;
 
-			}
+								}
 
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
 			
-		}
-
-		else if(collisor.tag == "Refrigerante"){
+						} else if (collisor.tag == "Refrigerante") {
 			
 					
-			if (GameManager.QntVida<GameManager.MaxQntVida)
-			{
+								if (GameManager.QntVida < GameManager.MaxQntVida) {
 
-				Pontuar("+63");
-				GameManager.QntVida += 63f;
+										Pontuar ("+63");
+										GameManager.QntVida += 63f;
 
 
 				
-			}
+								}
 
-			collisor.GetComponent<Acao>().Destroy();
-			Audio(clipAudio);
+								collisor.GetComponent<Acao> ().Destroy ();
+								Audio (clipAudio);
 			
 			
-		}
+						}
+				
 	}
 
 	void Audio(AudioClip clip){

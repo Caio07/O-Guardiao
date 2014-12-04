@@ -4,15 +4,15 @@ using System.Collections;
 public class Personagem : MonoBehaviour {
 
 
-	private GameManager _gamemanager;
-	private GrayscaleEffect _gray;
+	//private GameManager _gamemanager;
+	//private GrayscaleEffect _gray;
 	// Use this for initialization
 	void Start () {
 
-		_gray = GameObject.Find("Main Camera").GetComponent<GrayscaleEffect>();
-		_gray.enabled = false;
+		//_gray = GameObject.Find("Main Camera").GetComponent<GrayscaleEffect>();
+		//_gray.enabled = false;
 
-		_gamemanager = FindObjectOfType(typeof(GameManager)) as GameManager;
+		//_gamemanager = FindObjectOfType(typeof(GameManager)) as GameManager;
 
 	}
 	
@@ -23,7 +23,7 @@ public class Personagem : MonoBehaviour {
 	
 	}
 
-	private void OnMouseDown(){
+	/*private void OnMouseDown(){
 		
 		if( CircleBar.clicado == true){
 			StartCoroutine(Effect());	
@@ -38,6 +38,6 @@ public class Personagem : MonoBehaviour {
 		CircleBar.clicado = false;
 
 			
-	}
+	}*/
 
 }

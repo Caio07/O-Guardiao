@@ -140,11 +140,9 @@ public class GameManager : MonoBehaviour {
 								Invoke ("LoadLevel", 1f);
 				
 						}
+
 						break;
 		
-				/*case gameState.gameOver:
-				guiAtivo = false;
-						break;*/
 				}
 
 		}
