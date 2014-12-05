@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Acao.cs" />
+     <Compile Include="Assets\Scripts\Botao_jogar.cs" />
      <Compile Include="Assets\Scripts\CircleBar.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
@@ -57,6 +58,8 @@
      <Compile Include="Assets\Scripts\Personagem.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
      <Compile Include="Assets\Scripts\Relogio.cs" />
+     <Compile Include="Assets\Scripts\Relogio1.cs" />
+     <Compile Include="Assets\Scripts\Relogio2.cs" />
      <None Include="Assets\Plugins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Plugins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Plugins\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

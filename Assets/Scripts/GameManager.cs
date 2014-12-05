@@ -43,18 +43,10 @@ public class GameManager : MonoBehaviour {
 	public GUIStyle indicador;
 
 	//Controlador
-	private bool guiAtivo;
-	private bool startAtivo;
 
 
-	public enum gameState{
-		main,
-		game,
 
 
-	}
-	public static gameState state;
-	public GameObject mainUI;
 	public GameObject gameUI;
 
 
@@ -86,38 +78,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		mBlur = GameObject.Find("Main Camera").GetComponent<MotionBlur>();
 		mBlur.enabled = false;
-		guiAtivo = false;
-		startAtivo = false;
-		mainUI.SetActive(false);
-		gameUI.SetActive(false);
-
-		switch (state) {
-		case gameState.main:
-			mainUI.SetActive(true);
-			break;
-		case gameState.game:
-			gameUI.SetActive(true);
-			break;
-
-		}
+		StartCoroutine(GameStart());
 
 	}
 	
 
 	void Update () {
 
-				switch (state) {
-				case gameState.main:
-				startAtivo = true;
-			Time.timeScale = 0;
-						break;
-		
-				case gameState.game:
-			//criar barra de vida
-			Time.timeScale = 1;
-	
-						guiAtivo = true;
-						startAtivo = false;
+				
 						heightButton = Screen.height / 1.4f * (QntVida / MaxQntVida);
 
 						if (QntVida < MaxQntVida) {
@@ -128,7 +96,7 @@ public class GameManager : MonoBehaviour {
 						if (QntVida <= 20) {
 								//Handheld.Vibrate();
 								QntVida += 5;
-								Invoke ("LoadLevel", 1f);
+								Invoke ("LoadLevel", 1F);
 								//_score.Recorde();
 								
 						}
@@ -141,11 +109,11 @@ public class GameManager : MonoBehaviour {
 				
 						}
 
-						break;
+						
 		
 				}
 
-		}
+
 
 
 
@@ -153,10 +121,7 @@ public class GameManager : MonoBehaviour {
 	public IEnumerator GameStart(){
 
 
-			
-		mainUI.SetActive (false);
-		gameUI.SetActive (true);
-		state = gameState.game;
+
 		personagem = Instantiate (personagem.transform, 
 		                          personagem.transform.position, 
 		                          personagem.transform.rotation) as GameObject;
@@ -175,12 +140,12 @@ public class GameManager : MonoBehaviour {
 
 	void LoadLevel(){
 
-		Application.LoadLevel(1);
+		Application.LoadLevel(4);
 
 
 	}
 	void OnGUI(){
-		if (guiAtivo) {
+
 
 						GUI.skin = layoutBarra;
 						Vector2 Pivot = new Vector2 (posX + width / 2.0f, posY + height / 2.0f);
@@ -231,18 +196,15 @@ public class GameManager : MonoBehaviour {
 								Pontuacao.speed = 2F;
 								GUI.skin.button.normal.background = fundomin_G;
 						}
-				}
-
-		if (startAtivo) {
 				
-			if(GUI.Button (new Rect (Screen.width / 2 - 200, Screen.height /3 + 100, 400F, 100F), "", btnJogar)){
 
-				StartCoroutine(GameStart());
-			}
+
+				
+			
 		}
 
 
-	}
+
 
 
 

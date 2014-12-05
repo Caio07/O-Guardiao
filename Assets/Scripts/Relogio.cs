@@ -4,14 +4,14 @@ using System.Collections;
 public class Relogio : MonoBehaviour {
 
 
-	public static float startTime;
+	public float startTime;
 	public float timeRemaining;
 
 	
 
 	// Use this for initialization
 	void Start () {
-		startTime = 60f;
+		startTime = 30f;
 
 	}
 	
@@ -30,7 +30,7 @@ public class Relogio : MonoBehaviour {
 		ShowTime();
 		if(timeRemaining <0)
 		{
-			Application.LoadLevel("Game Over");			
+			Application.LoadLevel("level 2");			
 	    }
 	
 	
