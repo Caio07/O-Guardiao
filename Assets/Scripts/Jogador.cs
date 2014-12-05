@@ -4,19 +4,20 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 
 
-	public float distance = 10;
-	public Font fonte;
-	public GameObject LifeBar;
-	public AudioClip clipAudio;
 
-	private Vector3 position;
+		public float distance = 10;
+		public Font fonte;
+		public GameObject LifeBar;
+		public AudioClip clipAudio;
+
+		private Vector3 position;
 	
-	public float posX;
-	public float posY;
+		public float posX;
+		public float posY;
 
-	public Texture2D cursorTexture;
-	private Vector2 hotSpot = Vector2.zero;
-
+		public Texture2D cursorTexture;
+		private Vector2 hotSpot = Vector2.zero;
+			
 
 
 
@@ -29,49 +30,23 @@ public class Jogador : MonoBehaviour {
 
 
 
+
 }
 	    
 
 	void Update () 
 {
-		Plataforma ();
+		
 		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Vector2 pos = r.GetPoint(distance);
 		transform.position = pos;
+
+
+						
 }
 
 
-	private void Plataforma()
-	{
-		
-		
-		/*if(Application.platform == RuntimePlatform.Android)
-		{
-			//Input.touchCount == 1 ||
-
-
-				position = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, 
-				                                                      Input.GetTouch(0).position.y,1));
-				
-				transform.position = new Vector2(position.x, position.y);
-				collider2D.enabled = true;
-				return;
-			}
-			collider2D.enabled = false;
-		} */
-	if(Input.GetMouseButtonDown(0))
-	{
-		
-			
-			position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 
-			                                                      Input.mousePosition.y,0));
-			
-			transform.position = new Vector2(position.x, position.y);
-		
-		
-	}
-	}
-
+	
 	public void OnTriggerEnter2D(Collider2D collisor)
 	{
 		// Colisao de todos os elementos que aparecerao em cena
@@ -79,7 +54,7 @@ public class Jogador : MonoBehaviour {
 	
 			
 			
-						if (collisor.tag == "Exercicio") {
+				if (collisor.tag == "Exercicio" && Input.GetMouseButtonDown(0)) {
 
 		
 
@@ -93,7 +68,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-						} else if (collisor.tag == "Insulina") {
+				} else if (collisor.tag == "Insulina" && Input.GetMouseButtonDown(0)) {
 
 		
 								if (GameManager.QntVida > 10) {
@@ -109,7 +84,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-						} else if (collisor.tag == "Abacate") {
+				} else if (collisor.tag == "Abacate" && Input.GetMouseButtonDown(0)) {
 
 
 								if (GameManager.QntVida > 10) {
@@ -124,7 +99,7 @@ public class Jogador : MonoBehaviour {
 								Audio (clipAudio);
 
 
-						} else if (collisor.tag == "Sorvete") {
+				} else if (collisor.tag == "Sorvete" && Input.GetMouseButtonDown(0)) {
 	
 			
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -136,7 +111,7 @@ public class Jogador : MonoBehaviour {
 			
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
-						} else if (collisor.tag == "Cenoura") {
+				} else if (collisor.tag == "Cenoura" && Input.GetMouseButtonDown(0)) {
 			
 
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -148,7 +123,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-						} else if (collisor.tag == "Pao") {
+				} else if (collisor.tag == "Pao" && Input.GetMouseButtonDown(0)) {
 			
 						
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -160,7 +135,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-						} else if (collisor.tag == "Refrigerante") {
+				} else if (collisor.tag == "Refrigerante" && Input.GetMouseButtonDown(0)) {
 			
 					
 								if (GameManager.QntVida < GameManager.MaxQntVida) {

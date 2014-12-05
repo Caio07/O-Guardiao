@@ -30,7 +30,7 @@ public class Relogio1 : MonoBehaviour {
 		ShowTime();
 		if(timeRemaining <0)
 		{
-			Application.LoadLevel("level 3");			
+						Application.LoadLevel("NextLevel2");			
 	    }
 	
 	

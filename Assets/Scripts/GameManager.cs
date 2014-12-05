@@ -42,26 +42,19 @@ public class GameManager : MonoBehaviour {
 	private float rotationAngle = 180;
 	public GUIStyle indicador;
 
-	//Controlador
-
-
-
-
-	public GameObject gameUI;
-
+	
 
 
 	public GameObject personagem;
 	public GameObject LifeBar;
 
-
-
+	
 
 	void Awake() {
 
 
 		QntVida = 100;
-		MaxQntVida = 400;
+		MaxQntVida = 300;
 		width = Screen.width/13;
 		posX = Screen.width - (width + 15);
 		posY = Screen.height/6;
@@ -80,34 +73,40 @@ public class GameManager : MonoBehaviour {
 		mBlur.enabled = false;
 		StartCoroutine(GameStart());
 
+
+
+
 	}
 	
 
 	void Update () {
 
-				
 						heightButton = Screen.height / 1.4f * (QntVida / MaxQntVida);
+
 
 						if (QntVida < MaxQntVida) {
 								QntVida -= 0.1f;
-								
+
 						}
-			
+
 						if (QntVida <= 20) {
 								//Handheld.Vibrate();
 								QntVida += 5;
 								Invoke ("LoadLevel", 1F);
 								//_score.Recorde();
-								
+
 						}
-			
-			
-			
-						if (QntVida > 350) {
+
+
+
+						if (QntVida > 300) {
 
 								Invoke ("LoadLevel", 1f);
-				
+
 						}
+
+							
+
 
 						
 		
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour {
 
 	public IEnumerator GameStart(){
 
-
+		
 
 		personagem = Instantiate (personagem.transform, 
 		                          personagem.transform.position, 
@@ -132,6 +131,8 @@ public class GameManager : MonoBehaviour {
 		_score = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>()
 			as Pontuacao;
 
+				DontDestroyOnLoad (LifeBar);
+
 		yield return null;
 
 	}
@@ -141,6 +142,7 @@ public class GameManager : MonoBehaviour {
 	void LoadLevel(){
 
 		Application.LoadLevel(4);
+			
 
 
 	}
@@ -153,10 +155,10 @@ public class GameManager : MonoBehaviour {
 						GUI.Button (new Rect (posX, posY, width, heightButton), " ");	
 						GUI.Box (new Rect (posX, posY, width, height), " ");
 						GUI.matrix = Matrix4x4.identity;
-						GUI.Label (new Rect (posX - 20, Screen.height/2 + 300, 100f, 50f), QntVida.ToString ("F0"), indicador);
+						GUI.Label (new Rect (posX - 20, Screen.height / 2 + 300, 100f, 50f), QntVida.ToString ("F0"), indicador);
 		
 		
-						if (QntVida > 320) {
+						if (QntVida > 300) {
 			
 								GUI.skin.button.normal.background = fundomax_G;
 								Pontuacao.speed = 2F;
@@ -199,10 +201,9 @@ public class GameManager : MonoBehaviour {
 				
 
 
-				
 			
-		}
 
+						}
 
 
 

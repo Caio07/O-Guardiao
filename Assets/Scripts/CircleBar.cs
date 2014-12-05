@@ -17,9 +17,7 @@ public class CircleBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(CircleBar.clicado == false){
-			iTween.Stop ();
-		}
+		
 
 			
 	}
@@ -37,7 +35,7 @@ public class CircleBar : MonoBehaviour {
 			gameObject.renderer.material.SetFloat("_Cutoff", i);
 			yield return 0;
 		}
-		if(i<-1.005){
+		if(i<-1){
 
 			StartCoroutine(MyCoroutine());
 			clicado = true;

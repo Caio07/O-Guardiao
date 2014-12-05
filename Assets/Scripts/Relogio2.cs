@@ -30,7 +30,7 @@ public class Relogio2 : MonoBehaviour {
 		ShowTime();
 		if(timeRemaining <0)
 		{
-			Application.LoadLevel("Game Over");			
+						Application.LoadLevel("Game Over");			
 	    }
 	
 	

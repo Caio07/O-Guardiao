@@ -5,12 +5,12 @@ public class Personagem : MonoBehaviour {
 
 
 	//private GameManager _gamemanager;
-	//private GrayscaleEffect _gray;
+	private GrayscaleEffect _gray;
 	// Use this for initialization
 	void Start () {
 
-		//_gray = GameObject.Find("Main Camera").GetComponent<GrayscaleEffect>();
-		//_gray.enabled = false;
+		_gray = GameObject.Find("Main Camera").GetComponent<GrayscaleEffect>();
+		_gray.enabled = false;
 
 		//_gamemanager = FindObjectOfType(typeof(GameManager)) as GameManager;
 
@@ -18,8 +18,8 @@ public class Personagem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	
+				if (Input.GetMouseButtonDown(0) && CircleBar.clicado == true)
+						StartCoroutine(Effect());	
 	
 	}
 
@@ -28,16 +28,17 @@ public class Personagem : MonoBehaviour {
 		if( CircleBar.clicado == true){
 			StartCoroutine(Effect());	
 		}
-	}
+	}*/
 
 	IEnumerator Effect(){
 		
 		_gray.enabled = true;
+		GameManager.QntVida += 95f;
 		yield return new WaitForSeconds(3);
 		_gray.enabled = false;
 		CircleBar.clicado = false;
 
 			
-	}*/
+	}
 
 }
