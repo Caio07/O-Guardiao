@@ -4,7 +4,7 @@ using System.Collections;
 public class Instanciar : MonoBehaviour {
 
 	public float minSpawntime = 1;
-	public float maxSpawntime = 10;
+	public float maxSpawntime = 5;
 	public float spawnItem;
 
 	public GameObject [] Itens;

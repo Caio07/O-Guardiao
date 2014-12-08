@@ -15,8 +15,8 @@ public class Jogador : MonoBehaviour {
 		public float posX;
 		public float posY;
 
-		public Texture2D cursorTexture;
-		private Vector2 hotSpot = Vector2.zero;
+		//public Texture2D cursorTexture;
+		//private Vector2 hotSpot = Vector2.zero;
 			
 
 
@@ -25,7 +25,7 @@ public class Jogador : MonoBehaviour {
 	void Start () {
 
 
-		Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
+		//Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
 
 
 
@@ -54,7 +54,7 @@ public class Jogador : MonoBehaviour {
 	
 			
 			
-				if (collisor.tag == "Exercicio" && Input.GetMouseButtonDown(0)) {
+				if (collisor.tag == "Exercicio" ) {
 
 		
 
@@ -68,7 +68,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-				} else if (collisor.tag == "Insulina" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Insulina") {
 
 		
 								if (GameManager.QntVida > 10) {
@@ -84,7 +84,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-				} else if (collisor.tag == "Abacate" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Abacate" ) {
 
 
 								if (GameManager.QntVida > 10) {
@@ -99,7 +99,7 @@ public class Jogador : MonoBehaviour {
 								Audio (clipAudio);
 
 
-				} else if (collisor.tag == "Sorvete" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Sorvete") {
 	
 			
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -111,7 +111,7 @@ public class Jogador : MonoBehaviour {
 			
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
-				} else if (collisor.tag == "Cenoura" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Cenoura") {
 			
 
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -123,7 +123,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-				} else if (collisor.tag == "Pao" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Pao") {
 			
 						
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -135,7 +135,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-				} else if (collisor.tag == "Refrigerante" && Input.GetMouseButtonDown(0)) {
+				} else if (collisor.tag == "Refrigerante") {
 			
 					
 								if (GameManager.QntVida < GameManager.MaxQntVida) {

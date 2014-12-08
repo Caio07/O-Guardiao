@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour {
 
 
 						if (QntVida > 300) {
-
+					
+								QntVida -= 5;
 								Invoke ("LoadLevel", 1f);
 
 						}
