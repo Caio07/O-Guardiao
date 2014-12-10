@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject Tempo;
 	public GUIStyle btnJogar;
 	public GUIStyle btnReiniciar;
-
+   
 
 	public Pontuacao _score;
 
@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour {
 		personagem = Instantiate (personagem.transform, 
 		                          personagem.transform.position, 
 		                          personagem.transform.rotation) as GameObject;
-		LifeBar = Instantiate (LifeBar.transform, 
+		/*LifeBar = Instantiate (LifeBar.transform, 
 		                       LifeBar.transform.position, 
-		                       LifeBar.transform.rotation) as GameObject;
+		                       LifeBar.transform.rotation) as GameObject;*/
 
 		_score = GameObject.FindGameObjectWithTag("Score").GetComponent<Pontuacao>()
 			as Pontuacao;
@@ -156,32 +156,38 @@ public class GameManager : MonoBehaviour {
 						GUI.Button (new Rect (posX, posY, width, heightButton), " ");	
 						GUI.Box (new Rect (posX, posY, width, height), " ");
 						GUI.matrix = Matrix4x4.identity;
-						GUI.Label (new Rect (posX - 20, Screen.height / 2 + 300, 100f, 50f), QntVida.ToString ("F0"), indicador);
+						//GUI.Label (new Rect (posX - 20, Screen.height / 2 + 300, 100f, 50f), QntVida.ToString ("F0"), indicador);
 		
 		
-						if (QntVida > 300) {
+						if (QntVida > 270) {
 			
 								GUI.skin.button.normal.background = fundomax_G;
 								Pontuacao.speed = 2F;
+								Multiplicador.text.text = "2X";
+			
+
 						}
 				
-						if (QntVida > 250) {
+						if (QntVida > 230) {
 			
 								GUI.skin.button.normal.background = fundomax_M;
 								mBlur.enabled = true;
 								Pontuacao.speed = 2F;
+								Multiplicador.text.text = "2X";
 
 						}
-						if (QntVida > 120 && QntVida < 250) {
+						if (QntVida > 120 && QntVida < 230) {
 			
 								GUI.skin.button.normal.background = fundobom_M;
 								mBlur.enabled = false;
 								Pontuacao.speed = 3F;
+						Multiplicador.text.text = "3X";
 						}
 						if (QntVida > 70 && QntVida < 120) {
 			
 								GUI.skin.button.normal.background = fundobom_G;
 								Pontuacao.speed = 4F;
+						Multiplicador.text.text = "4X";
 
 
 
@@ -191,13 +197,14 @@ public class GameManager : MonoBehaviour {
 								
 								Pontuacao.speed = 2F;
 								GUI.skin.button.normal.background = fundomin_M;
-								//Handheld.Vibrate();
+						Multiplicador.text.text = "2X";
 
 						}
 		
 						if (QntVida < 40) {
 								Pontuacao.speed = 2F;
 								GUI.skin.button.normal.background = fundomin_G;
+						Multiplicador.text.text = "2X";
 						}
 				
 

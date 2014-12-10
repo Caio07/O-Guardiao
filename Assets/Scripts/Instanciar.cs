@@ -6,6 +6,10 @@ public class Instanciar : MonoBehaviour {
 	public float minSpawntime = 1;
 	public float maxSpawntime = 5;
 	public float spawnItem;
+	public int spawnCount;
+	public float startWait;
+		public float waveWait;
+
 
 	public GameObject [] Itens;
 	private GameObject item;
@@ -27,61 +31,62 @@ public class Instanciar : MonoBehaviour {
 
 	void Update(){
 
-		if(Pontuacao.pontos > 40){
+		if(Pontuacao.pontos > 80){
 
-			maxSpawntime = 2;
+			maxSpawntime = 0.3f;
 
 		}
-		else if(Pontuacao.pontos > 30){
+		else if(Pontuacao.pontos > 60){
 			
-			maxSpawntime = 4;
+			maxSpawntime = 0.5f;
+			
+		}
+		else if(Pontuacao.pontos > 40){
+			
+			maxSpawntime = 0.7f;
 			
 		}
 		else if(Pontuacao.pontos > 20){
 			
-			maxSpawntime = 6;
-			
-		}
-		else if(Pontuacao.pontos > 10){
-			
-			maxSpawntime = 8;
+			maxSpawntime = 0.9f;
 			
 		}
 	}
 
 
-	bool RandomItem(){
-
-		if (Itens.Length > 0){
-
-			index = Random.Range(0, Itens.Length);
-			return true;
-		}
-		return false;
-
-	}
+	
 
 	private IEnumerator Instanciador(){
 
-		spawnItem = Random.Range(minSpawntime, maxSpawntime);
+				yield return new WaitForSeconds (startWait);
 
-		yield return new WaitForSeconds(spawnItem);
-		if ( RandomItem()){
+				while (true) {
 
-			item = Instantiate(Itens[index], new Vector2(transform.position.x, Random.Range(minX,maxX))
-			                   ,Quaternion.Euler(0,0,Random.Range(-160,160)))as GameObject;
-			Audio(clipAudio);
+				for (int i = 0; i < spawnCount; i++) {
+		
+						
+								spawnItem = Random.Range (minSpawntime, maxSpawntime);
 
-			if (item.transform.position.x > 0){
+								if (RandomItem ()) {
 
-				item.rigidbody2D.AddForce(new Vector2(-leftForce,upForce));
-				                          }
-		    else{
-					item.rigidbody2D.AddForce(new Vector2(leftForce,upForce ));
+										item = Instantiate (Itens [index], new Vector2 (transform.position.x, Random.Range (minX, maxX))
+			                   , Quaternion.Euler (0, 0, Random.Range (-160, 160)))as GameObject;
+										Audio (clipAudio);
+
+										if (item.transform.position.x > 0) {
+
+												item.rigidbody2D.AddForce (new Vector2 (-leftForce, upForce));
+										} else {
+												item.rigidbody2D.AddForce (new Vector2 (leftForce, upForce));
+										}
+										yield return new WaitForSeconds (spawnItem);
+								}
+
+
+							
+						}
+						yield return new WaitForSeconds (waveWait);
 				}
-
-StartCoroutine("Instanciador");
-			}
 
 		}
 
@@ -91,6 +96,16 @@ StartCoroutine("Instanciador");
 		AudioSource.PlayClipAtPoint(clip, transform.position, 0.2f);
 	}
 
+		bool RandomItem(){
+
+				if (Itens.Length > 0){
+
+						index = Random.Range(0, Itens.Length);
+						return true;
+				}
+				return false;
+
+		}
 }
 
 

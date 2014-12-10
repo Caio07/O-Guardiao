@@ -4,30 +4,31 @@ using System.Collections;
 public class Jogador : MonoBehaviour {
 
 
+		Vector2 firstPressPos;
+		Vector2 currentSwipe;
 
 		public float distance = 10;
 		public Font fonte;
 		public GameObject LifeBar;
 		public AudioClip clipAudio;
-
 		private Vector3 position;
 	
 		public float posX;
 		public float posY;
 
-		//public Texture2D cursorTexture;
-		//private Vector2 hotSpot = Vector2.zero;
+		private TrailRenderer trail;
+	
+
 			
 
 
 
 
 	void Start () {
-
-
-		//Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
-
-
+			
+	
+				trail = gameObject.GetComponent<TrailRenderer> ();
+				trail.enabled = false;
 
 
 
@@ -37,24 +38,51 @@ public class Jogador : MonoBehaviour {
 	void Update () 
 {
 		
-		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-		Vector2 pos = r.GetPoint(distance);
-		transform.position = pos;
+				Plataforma ();
+				Swipe ();
+			
 
 
 						
 }
+		private void Plataforma(){
+
+				position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 
+						Input.mousePosition.y,0));
+
+				transform.position = new Vector2(position.x, position.y);
 
 
+
+		}
+	
+		private void Swipe(){
+				if (Input.GetMouseButtonDown (0)) {
+						firstPressPos =(Vector2) Input.mousePosition;
+						collider2D.enabled = true;
+						trail.enabled = true;
+
+
+				}
+				if (Input.GetMouseButtonUp (0)) {
+						currentSwipe = (Vector2)Input.mousePosition - firstPressPos;
+						trail.enabled = false;
+						collider2D.enabled = false;
+
+
+				}
+
+
+		}
 	
 	public void OnTriggerEnter2D(Collider2D collisor)
 	{
 		// Colisao de todos os elementos que aparecerao em cena
 
 	
-			
-			
-				if (collisor.tag == "Exercicio" ) {
+
+				if (trail.enabled == true) {
+						if (collisor.tag == "Exercicio") {
 
 		
 
@@ -68,7 +96,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-				} else if (collisor.tag == "Insulina") {
+						} else if (collisor.tag == "Insulina") {
 
 		
 								if (GameManager.QntVida > 10) {
@@ -84,7 +112,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 
-				} else if (collisor.tag == "Abacate" ) {
+						} else if (collisor.tag == "Abacate") {
 
 
 								if (GameManager.QntVida > 10) {
@@ -99,7 +127,7 @@ public class Jogador : MonoBehaviour {
 								Audio (clipAudio);
 
 
-				} else if (collisor.tag == "Sorvete") {
+						} else if (collisor.tag == "Sorvete") {
 	
 			
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -111,7 +139,7 @@ public class Jogador : MonoBehaviour {
 			
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
-				} else if (collisor.tag == "Cenoura") {
+						} else if (collisor.tag == "Cenoura") {
 			
 
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -123,7 +151,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-				} else if (collisor.tag == "Pao") {
+						} else if (collisor.tag == "Pao") {
 			
 						
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -135,7 +163,7 @@ public class Jogador : MonoBehaviour {
 								collisor.GetComponent<Acao> ().Destroy ();
 								Audio (clipAudio);
 			
-				} else if (collisor.tag == "Refrigerante") {
+						} else if (collisor.tag == "Refrigerante") {
 			
 					
 								if (GameManager.QntVida < GameManager.MaxQntVida) {
@@ -152,6 +180,8 @@ public class Jogador : MonoBehaviour {
 			
 			
 						}
+
+				}
 				
 	}
 
